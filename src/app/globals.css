@@ -1,0 +1,149 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand Theme Colors */
+  --color-primary: #1a5f7a;
+  --color-primary-hover: #154f67;
+  --color-primary-container: #2d9596;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #e8f4f8;
+  
+  --color-secondary: #2d9596;
+  --color-secondary-hover: #248080;
+  --color-secondary-container: #e8f4f8;
+  --color-on-secondary-container: #1a5f7a;
+  
+  --color-tertiary: #f59e0b;
+  
+  --color-background: #f9fbfc;
+  --color-surface: #ffffff;
+  --color-surface-dim: #f0f7fa;
+  
+  --color-on-surface: #0d1f2d;
+  --color-on-surface-variant: #3a4f5c;
+  
+  --color-outline: #70878f;
+  --color-outline-variant: #c0ccd1;
+
+  /* Font mapping */
+  --font-headline: var(--font-playfair), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-plus-jakarta), system-ui, -apple-system, sans-serif;
+}
+
+/* ─── GLOBAL BASE ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── PREMIUM CARD ─── */
+@layer utilities {
+  .premium-card {
+    background-color: #ffffff;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid rgba(26, 95, 122, 0.08);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .premium-card:hover {
+    box-shadow: 0px 20px 40px rgba(26, 95, 122, 0.08);
+    border-color: rgba(45, 149, 150, 0.3);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(26, 95, 122, 0.1);
+  }
+
+  /* Page transition container */
+  .page-enter {
+    animation: pageEnter 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f0f7fa;
+}
+::-webkit-scrollbar-thumb {
+  background: #1a5f7a;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2d9596;
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+  70%  { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2s infinite;
+}
+
+/* ─── SELECTION HIGHLIGHT ─── */
+::selection {
+  background-color: #c0e8f5;
+  color: #001e2b;
+}
+
+/* ─── FOCUS STYLES ─── */
+:focus-visible {
+  outline: 2px solid #1a5f7a;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ─── FONT WEIGHTS FOR HEADLINE ─── */
+.font-headline {
+  font-family: var(--font-headline);
+  font-feature-settings: "liga" 1, "kern" 1;
+}
+
+/* ─── SMOOTH LINK TRANSITIONS ─── */
+a {
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+/* ─── SECTION DIVIDER ─── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(26, 95, 122, 0.15), transparent);
+}
