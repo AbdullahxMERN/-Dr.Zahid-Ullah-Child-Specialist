@@ -21,7 +21,7 @@ export default function ContactPage() {
 
   const contactItems = [
     { icon: <Phone className="w-6 h-6" />, label: "Clinic Phone", value: "051-2340508", sub: "+92 326 5557795", href: "tel:051-2340508", color: "from-[#1a5f7a] to-[#2d9596]" },
-    { icon: <MessageCircle className="w-6 h-6" />, label: "Doctor WhatsApp", value: "0346 9297818", sub: "Tap to open WhatsApp", href: WHATSAPP_LINK, color: "from-[#25D366] to-[#1fba58]" },
+    { icon: <MessageCircle className="w-6 h-6" />, label: "Doctor WhatsApp", value: "0346 9297818", sub: "Tap to open WhatsApp", href: WHATSAPP_LINK, color: "from-[#1DAA61] to-[#17964f]" },
     { icon: <MapPin className="w-6 h-6" />, label: "Clinic Location", value: "Muhammad Medical Centre", sub: "G-8 Markaz, Islamabad", href: MAPS_LINK, color: "from-[#f59e0b] to-[#e67e22]" },
     { icon: <Clock className="w-6 h-6" />, label: "Appointment Days", value: "Monday – Friday", sub: "Closed Sat & Sun", href: "/appointment", color: "from-[#1a5f7a] to-[#2d9596]" },
   ];
@@ -63,11 +63,11 @@ export default function ContactPage() {
           {/* Message via WhatsApp */}
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }}
             className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
-            <div className="h-1.5 bg-gradient-to-r from-[#1a5f7a] via-[#2d9596] to-[#25D366]" />
+            <div className="h-1.5 bg-gradient-to-r from-[#1a5f7a] via-[#2d9596] to-[#1DAA61]" />
             <div className="p-8">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-xl bg-[#25D366]/10 flex items-center justify-center">
-                  <MessageCircle className="w-5 h-5 text-[#25D366]" />
+                <div className="w-10 h-10 rounded-xl bg-[#1DAA61]/10 flex items-center justify-center">
+                  <MessageCircle className="w-5 h-5 text-[#1DAA61]" />
                 </div>
                 <div>
                   <h2 className="font-headline text-xl font-bold text-[#1a5f7a]">Send a Message</h2>
@@ -95,7 +95,7 @@ export default function ContactPage() {
                       className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#1a5f7a] focus:ring-2 focus:ring-[#1a5f7a]/10 transition-all resize-none" />
                   </div>
                   <button type="submit"
-                    className="w-full bg-[#25D366] hover:bg-[#1fba58] text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2 shadow-md transition-all active:scale-95">
+                    className="w-full bg-[#1DAA61] hover:bg-[#17964f] text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2 shadow-md transition-all active:scale-95">
                     <Send className="w-4 h-4" />
                     Send via WhatsApp
                   </button>
@@ -186,7 +186,7 @@ export default function ContactPage() {
                   TikTok
                 </a>
                 <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer"
-                  className="flex-1 flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1fba58] text-white py-3 rounded-xl font-bold text-sm transition-all">
+                  className="flex-1 flex items-center justify-center gap-2 bg-[#1DAA61] hover:bg-[#17964f] text-white py-3 rounded-xl font-bold text-sm transition-all">
                   WhatsApp
                 </a>
               </div>

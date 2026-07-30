@@ -48,7 +48,7 @@ export default function Footer() {
               <TikTokIcon />
             </a>
             <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer"
-              className="w-10 h-10 rounded-xl bg-[#25D366] flex items-center justify-center text-white hover:opacity-90 hover:scale-105 transition-all shadow-md" aria-label="WhatsApp">
+              className="w-10 h-10 rounded-xl bg-[#1DAA61] flex items-center justify-center text-white hover:opacity-90 hover:scale-105 transition-all shadow-md" aria-label="WhatsApp">
               <WhatsAppIcon />
             </a>
           </div>
@@ -97,7 +97,7 @@ export default function Footer() {
               </div>
             </li>
             <li className="flex items-start gap-3">
-              <MessageCircle className="w-4 h-4 text-[#25D366] shrink-0 mt-0.5" />
+              <MessageCircle className="w-4 h-4 text-[#1DAA61] shrink-0 mt-0.5" />
               <div>
                 <p className="text-xs font-bold text-white/40 uppercase tracking-wide mb-1">Doctor WhatsApp</p>
                 <a href="https://wa.me/923469297818" target="_blank" rel="noopener noreferrer" className="text-sm text-white/70 hover:text-white font-medium">0346 9297818</a>
@@ -121,7 +121,7 @@ export default function Footer() {
             Fill out our appointment form or chat directly with Dr. Zahid's team on WhatsApp.
           </p>
           <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-[#25D366] hover:bg-[#1fba58] text-white px-6 py-3.5 rounded-xl font-bold text-sm transition-all active:scale-95 shadow-md w-full justify-center">
+            className="flex items-center gap-2 bg-[#1DAA61] hover:bg-[#17964f] text-white px-6 py-3.5 rounded-xl font-bold text-sm transition-all active:scale-95 shadow-md w-full justify-center">
             <MessageCircle className="w-4 h-4" />
             WhatsApp: 0346 9297818
           </a>

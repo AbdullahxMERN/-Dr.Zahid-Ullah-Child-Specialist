@@ -187,7 +187,7 @@ export default function ReviewsPage() {
             </a>
             <Link
               href="/appointment"
-              className="inline-flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#1fba58] text-white px-8 py-4 rounded-full font-bold text-sm shadow-lg transition-all active:scale-95"
+              className="inline-flex items-center justify-center gap-2.5 bg-[#1DAA61] hover:bg-[#17964f] text-white px-8 py-4 rounded-full font-bold text-sm shadow-lg transition-all active:scale-95"
             >
               <MessageCircle className="w-4 h-4 fill-white" />
               Book Appointment

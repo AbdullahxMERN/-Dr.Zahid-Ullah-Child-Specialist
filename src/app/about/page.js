@@ -1,18 +1,53 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, BookOpen, Users, Heart, Star, CheckCircle, MessageCircle, MapPin, Microscope, Globe, FlaskConical } from "lucide-react";
+import { 
+  Award, 
+  BookOpen, 
+  Users, 
+  Heart, 
+  Star, 
+  CheckCircle, 
+  MessageCircle, 
+  MapPin, 
+  Microscope, 
+  Globe, 
+  FlaskConical,
+  GraduationCap,
+  Shield,
+  FileText,
+  Check,
+  TrendingUp,
+  ArrowRight
+} from "lucide-react";
 
 const WHATSAPP_LINK = `https://wa.me/923469297818?text=${encodeURIComponent("Hello Dr. Zahid, I'd like to book an appointment.")}`;
 
-const credentials = [
-  { label: "MBBS", note: "Ayub Medical College, Khyber Medical University, Peshawar – 2013", icon: "🎓" },
-  { label: "RMP", note: "Registered Medical Practitioner – PMC Reg #: 216371-N", icon: "📋" },
-  { label: "FCPS Paediatrics", note: "College of Physicians & Surgeons Pakistan", icon: "🏅" },
-  { label: "Fellow Paediatrics Endocrinology", note: "PIMS – Pakistan Institute of Medical Sciences, Islamabad (Feb 2026 – Present)", icon: "⭐" },
-  { label: "Member – Pakistan Paediatrics Association (PPA)", note: "", icon: "🇵🇰" },
-  { label: "Member – ISPAD", note: "International Society for Pediatric & Adolescent Diabetes", icon: "🌍" },
-  { label: "Member – ESPE", note: "European Society for Paediatric Endocrinology", icon: "🇪🇺" },
+const careValues = [
+  {
+    title: "Compassionate Care",
+    description: "Every child is unique. We provide a gentle, welcoming environment to make clinical visits stress-free for both children and parents.",
+    icon: Heart,
+    iconBg: "bg-rose-50 border border-rose-100 text-rose-600",
+  },
+  {
+    title: "Evidence-Based Medicine",
+    description: "Treatments are guided by the latest global protocols in pediatric endocrinology, ensuring safe and highly effective medical interventions.",
+    icon: Shield,
+    iconBg: "bg-amber-50 border border-amber-100 text-amber-600",
+  },
+  {
+    title: "Family-Centered Approach",
+    description: "We work hand-in-hand with parents, offering detailed education and guidance to manage chronic conditions like Type 1 Diabetes at home.",
+    icon: Users,
+    iconBg: "bg-violet-50 border border-violet-100 text-violet-600",
+  },
+  {
+    title: "Global Standards",
+    description: "Continuous alignment with European (ESPE) and International (ISPAD) pediatric standards to bring world-class medicine to Islamabad.",
+    icon: Globe,
+    iconBg: "bg-emerald-50 border border-emerald-100 text-emerald-600",
+  }
 ];
 
 const experience = [
@@ -59,11 +94,36 @@ const experience = [
 ];
 
 const researchPublications = [
-  "Frequency of UTI in Children Presenting with Diarrhea – The Research of Medical Science Review (2023)",
-  "Association of Hyperthyroidism with Patients of Beta Thalassemia Major – Infra Journal of Bioscience Research (2023)",
-  "Congenital Normonatremic Hyperbilirubinemia with Glucuronyl Transferase Deficiency – Journal of Population Therapeutics (2024)",
-  "Frequency of Rickets in Children with Lower Respiratory Tract Infections – PJMHS (2022)",
-  "Biochemical Profile of Malnutrition Children at a Tertiary Care Hospital – PJMHS (2022)",
+  {
+    title: "Frequency of UTI in Children Presenting with Diarrhea",
+    journal: "The Research of Medical Science Review",
+    year: "2023",
+    category: "Infectious Diseases"
+  },
+  {
+    title: "Association of Hyperthyroidism with Patients of Beta Thalassemia Major",
+    journal: "Infra Journal of Bioscience Research",
+    year: "2023",
+    category: "Endocrinology & Hematology"
+  },
+  {
+    title: "Congenital Normonatremic Hyperbilirubinemia with Glucuronyl Transferase Deficiency",
+    journal: "Journal of Population Therapeutics",
+    year: "2024",
+    category: "Neonatal Endocrinology"
+  },
+  {
+    title: "Frequency of Rickets in Children with Lower Respiratory Tract Infections",
+    journal: "PJMHS",
+    year: "2022",
+    category: "Bone & Metabolism"
+  },
+  {
+    title: "Biochemical Profile of Malnutrition Children at a Tertiary Care Hospital",
+    journal: "PJMHS",
+    year: "2022",
+    category: "Pediatric Nutrition"
+  },
 ];
 
 const specialties = [
@@ -109,7 +169,7 @@ export default function AboutPage() {
             </div>
             <div className="flex flex-wrap gap-3">
               <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-[#25D366] hover:bg-[#1fba58] text-white px-7 py-3.5 rounded-full font-bold shadow-lg transition-all active:scale-95">
+                className="flex items-center gap-2 bg-[#1DAA61] hover:bg-[#17964f] text-white px-7 py-3.5 rounded-full font-bold shadow-lg transition-all active:scale-95">
                 <MessageCircle className="w-5 h-5" />
                 Book Appointment
               </a>
@@ -168,38 +228,76 @@ export default function AboutPage() {
       </section>
 
       {/* Credentials & Specialties */}
-      <section className="py-16 px-6 md:px-16">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* Qualifications */}
-          <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
-            <h2 className="font-headline text-2xl font-bold text-[#1a5f7a] mb-6 flex items-center gap-2">
-              <BookOpen className="w-6 h-6 text-[#2d9596]" /> Qualifications & Memberships
+      <section className="py-24 px-6 md:px-16 bg-gradient-to-b from-white to-[#f8fafc]">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+          {/* Philosophy of Care */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            viewport={{ once: true }} 
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="space-y-6"
+          >
+            <h2 className="font-headline text-2xl font-bold text-[#1a5f7a] mb-8 flex items-center gap-2.5">
+              <Heart className="w-6 h-6 text-[#2d9596]" /> Philosophy of Care
             </h2>
-            <ul className="space-y-3">
-              {credentials.map((c) => (
-                <li key={c.label} className="flex items-start gap-3 p-4 rounded-xl bg-[#f0f7fa] hover:bg-[#e8f4f8] transition-colors group">
-                  <span className="text-xl shrink-0 mt-0.5">{c.icon}</span>
-                  <div>
-                    <p className="text-sm font-bold text-gray-800 group-hover:text-[#1a5f7a] transition-colors">{c.label}</p>
-                    {c.note && <p className="text-xs text-gray-500 mt-0.5 leading-relaxed">{c.note}</p>}
+            
+            {/* Care Values List */}
+            <div className="space-y-6">
+              {careValues.map((v, idx) => {
+                const IconComponent = v.icon;
+                return (
+                  <div key={idx} className="relative flex items-start gap-4 p-5 bg-white border border-gray-100/80 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] active:scale-[0.98] transition-transform">
+                    {/* Always-visible accent bar */}
+                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#1a5f7a] to-[#2d9596] rounded-l-full" />
+                    
+                    {/* Distinct color per icon */}
+                    <div className={`w-10 h-10 rounded-xl ${v.iconBg} flex items-center justify-center shrink-0 shadow-sm`}>
+                      <IconComponent className="w-6 h-6" />
+                    </div>
+                    <div className="space-y-1.5 pl-1">
+                      <h4 className="font-bold text-sm text-[#1a5f7a]">
+                        {v.title}
+                      </h4>
+                      <p className="text-xs text-gray-500 leading-relaxed">
+                        {v.description}
+                      </p>
+                    </div>
                   </div>
-                </li>
-              ))}
-            </ul>
+                );
+              })}
+            </div>
           </motion.div>
 
           {/* Areas of Expertise */}
-          <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
-            <h2 className="font-headline text-2xl font-bold text-[#1a5f7a] mb-6 flex items-center gap-2">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            viewport={{ once: true }} 
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="space-y-6"
+          >
+            <h2 className="font-headline text-2xl font-bold text-[#1a5f7a] mb-8 flex items-center gap-2.5">
               <Heart className="w-6 h-6 text-[#2d9596]" /> Areas of Expertise
             </h2>
-            <div className="grid grid-cols-1 gap-2.5 mb-8">
-              {specialties.map((s) => (
-                <div key={s} className="flex items-center gap-3 p-3.5 rounded-xl bg-[#f0f7fa] hover:bg-[#e8f4f8] transition-colors group">
-                  <CheckCircle className="w-4 h-4 text-[#2d9596] shrink-0" />
-                  <span className="text-sm font-semibold text-gray-700 group-hover:text-[#1a5f7a] transition-colors">{s}</span>
-                </div>
-              ))}
+            
+            {/* Unified container card */}
+            <div className="relative overflow-hidden bg-white border border-gray-100 shadow-[0_10px_35px_rgba(26,95,122,0.04)] rounded-[2.5rem] p-8 md:p-10">
+              <div className="absolute right-0 top-0 w-36 h-36 rounded-full bg-[#2d9596]/5 blur-3xl pointer-events-none" />
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+                {specialties.map((s, idx) => (
+                  <div key={idx} className="flex items-start gap-3">
+                    {/* Always-colored check circle */}
+                    <div className="w-5 h-5 rounded-full bg-[#2d9596] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                      <Check className="w-3 h-3" />
+                    </div>
+                    <span className="text-sm font-semibold text-gray-700 leading-snug">
+                      {s}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>
@@ -240,23 +338,66 @@ export default function AboutPage() {
       </section>
 
       {/* Research Publications */}
-      <section className="py-16 px-6 md:px-16">
+      <section className="py-24 px-6 md:px-16 bg-[#fafcff]">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-10">
+          <div className="text-center mb-16">
             <span className="text-[#2d9596] font-bold text-xs uppercase tracking-[0.2em]">Academic Contributions</span>
-            <h2 className="font-headline text-3xl font-bold text-[#1a5f7a] mt-2">Research Publications</h2>
+            <h2 className="font-headline text-3xl md:text-4xl font-bold text-[#1a5f7a] mt-2">Research Publications</h2>
+            <div className="w-16 h-1.5 bg-[#2d9596] mx-auto rounded-full mt-4" />
           </div>
-          <div className="space-y-4">
-            {researchPublications.map((pub, i) => (
-              <motion.div key={i} initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }} transition={{ delay: i * 0.08 }}
-                className="flex items-start gap-4 p-5 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all group">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#1a5f7a] to-[#2d9596] flex items-center justify-center text-white font-bold text-xs shrink-0">
-                  {i + 1}
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {researchPublications.map((pub, i) => {
+              const pubIconColors = [
+                "bg-indigo-50 border border-indigo-100 text-indigo-600",
+                "bg-teal-50 border border-teal-100 text-teal-600",
+                "bg-purple-50 border border-purple-100 text-purple-600",
+                "bg-amber-50 border border-amber-100 text-amber-600",
+                "bg-rose-50 border border-rose-100 text-rose-600",
+              ];
+              return (
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, y: 20 }} 
+                whileInView={{ opacity: 1, y: 0 }}
+                whileTap={{ scale: 0.98 }}
+                viewport={{ once: true }} 
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="relative bg-white rounded-3xl border border-gray-100 p-8 shadow-[0_8px_30px_rgba(0,0,0,0.015)] active:scale-[0.98] transition-transform duration-200 flex flex-col justify-between"
+              >
+                {/* Always-visible top accent bar */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1a5f7a] to-[#2d9596] rounded-t-3xl" />
+                
+                <div className="space-y-4">
+                  {/* Card Header */}
+                  <div className="flex items-center justify-between">
+                    <div className={`w-10 h-10 rounded-xl ${pubIconColors[i % pubIconColors.length]} flex items-center justify-center shadow-sm`}>
+                      <FileText className="w-6 h-6" />
+                    </div>
+                    <span className="px-3 py-1 rounded-full bg-[#f59e0b]/10 text-[#f59e0b] text-[10px] font-extrabold uppercase tracking-wider">
+                      Published · {pub.year}
+                    </span>
+                  </div>
+
+                  {/* Category */}
+                  <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-[#2d9596]">
+                    {pub.category}
+                  </span>
+
+                  {/* Title */}
+                  <h3 className="font-headline text-lg font-bold text-gray-800 leading-snug">
+                    {pub.title}
+                  </h3>
                 </div>
-                <p className="text-sm text-gray-700 leading-relaxed group-hover:text-[#1a5f7a] transition-colors">{pub}</p>
+
+                {/* Journal Divider & Citation */}
+                <div className="mt-6 pt-4 border-t border-gray-150/60">
+                  <p className="text-xs text-gray-500 font-semibold italic">
+                    <span className="text-[#2d9596] font-bold not-italic">Journal:</span> {pub.journal}
+                  </p>
+                </div>
               </motion.div>
-            ))}
+            )})}
           </div>
         </div>
       </section>
@@ -266,7 +407,7 @@ export default function AboutPage() {
         <h2 className="font-headline text-3xl md:text-4xl font-bold mb-3">Ready to Consult Dr. Zahid?</h2>
         <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto">Book an appointment today at our G-8 Markaz clinics — Mon to Fri.</p>
         <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1fba58] text-white px-10 py-4 rounded-full font-bold text-lg shadow-xl transition-all active:scale-95">
+          className="inline-flex items-center gap-2 bg-[#1DAA61] hover:bg-[#17964f] text-white px-10 py-4 rounded-full font-bold text-lg shadow-xl transition-all active:scale-95">
           <MessageCircle className="w-6 h-6" />
           WhatsApp Appointment
         </a>

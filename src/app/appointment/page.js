@@ -90,8 +90,8 @@ export default function AppointmentPage() {
           animate={{ opacity: 1, scale: 1 }}
           className="bg-white rounded-3xl shadow-2xl p-10 max-w-md w-full text-center border border-gray-100"
         >
-          <div className="w-20 h-20 bg-[#25D366]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-            <CheckCircle className="w-10 h-10 text-[#25D366]" />
+          <div className="w-20 h-20 bg-[#1DAA61]/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <CheckCircle className="w-10 h-10 text-[#1DAA61]" />
           </div>
           <h2 className="font-headline text-2xl font-bold text-[#1a5f7a] mb-3">Appointment Request Sent!</h2>
           <p className="text-gray-600 text-sm leading-relaxed mb-6">
@@ -116,7 +116,7 @@ export default function AppointmentPage() {
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-10">
           <button
             onClick={handleDirectWhatsApp}
-            className="w-full sm:w-auto flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#1fba58] text-white px-8 py-3.5 rounded-full font-bold text-sm shadow-md hover:shadow-lg transition-all active:scale-95 min-w-[220px]"
+            className="w-full sm:w-auto flex items-center justify-center gap-2.5 bg-[#1DAA61] hover:bg-[#17964f] text-white px-8 py-3.5 rounded-full font-bold text-sm shadow-md hover:shadow-lg transition-all active:scale-95 min-w-[220px]"
           >
             <MessageCircle className="w-4 h-4 fill-white" />
             Book via WhatsApp
@@ -304,8 +304,8 @@ export default function AppointmentPage() {
         {/* Direct Contact Cards below Form */}
         <div className="max-w-3xl mx-auto mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-[#25D366]/10 flex items-center justify-center shrink-0">
-              <MessageCircle className="w-6 h-6 text-[#25D366]" />
+            <div className="w-12 h-12 rounded-xl bg-[#1DAA61]/10 flex items-center justify-center shrink-0">
+              <MessageCircle className="w-6 h-6 text-[#1DAA61]" />
             </div>
             <div>
               <p className="font-bold text-xs text-gray-400 uppercase tracking-wider">Doctor WhatsApp</p>

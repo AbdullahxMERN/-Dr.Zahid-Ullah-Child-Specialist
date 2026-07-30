@@ -69,7 +69,7 @@ export default function BookingModal({ onClose }) {
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
         className="bg-white rounded-3xl w-full max-w-lg shadow-2xl relative overflow-hidden z-10 max-h-[90vh] overflow-y-auto"
       >
-        <div className="h-2 bg-gradient-to-r from-[#1a5f7a] via-[#2d9596] to-[#25D366] w-full" />
+        <div className="h-2 bg-gradient-to-r from-[#1a5f7a] via-[#2d9596] to-[#1DAA61] w-full" />
 
         <button
           onClick={onClose}
@@ -81,8 +81,8 @@ export default function BookingModal({ onClose }) {
         <div className="p-8">
           <div className="mb-6">
             <div className="flex items-center gap-3 mb-2">
-              <div className="w-10 h-10 rounded-xl bg-[#25D366]/10 flex items-center justify-center">
-                <MessageCircle className="w-5 h-5 text-[#25D366]" />
+              <div className="w-10 h-10 rounded-xl bg-[#1DAA61]/10 flex items-center justify-center">
+                <MessageCircle className="w-5 h-5 text-[#1DAA61]" />
               </div>
               <div>
                 <h3 className="font-headline text-2xl font-bold text-[#1a5f7a]">Book via WhatsApp</h3>
@@ -137,7 +137,7 @@ export default function BookingModal({ onClose }) {
             </div>
 
             <button type="submit"
-              className="w-full bg-[#25D366] hover:bg-[#1fba58] text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg transition-all active:scale-95 mt-2">
+              className="w-full bg-[#1DAA61] hover:bg-[#17964f] text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg transition-all active:scale-95 mt-2">
               <MessageCircle className="w-5 h-5 fill-white" />
               Send Appointment Request on WhatsApp
             </button>

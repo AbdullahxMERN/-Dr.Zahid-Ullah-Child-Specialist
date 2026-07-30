@@ -195,7 +195,7 @@ export default function ServicesPage() {
             <div className="mt-6 flex justify-center gap-4">
               <Link
                 href="/appointment"
-                className="bg-[#25D366] hover:bg-[#1fba58] text-white px-7 py-3 rounded-full font-bold text-sm shadow-md transition-all flex items-center gap-2"
+                className="bg-[#1DAA61] hover:bg-[#17964f] text-white px-7 py-3 rounded-full font-bold text-sm shadow-md transition-all flex items-center gap-2"
               >
                 <Calendar className="w-4 h-4" /> Book Appointment Form
               </Link>

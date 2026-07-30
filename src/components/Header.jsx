@@ -65,7 +65,7 @@ export default function Header() {
         {/* CTA Buttons */}
         <div className="hidden xl:flex items-center gap-2 shrink-0">
           <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer"
-            className="flex items-center gap-1.5 bg-[#25D366] text-white px-4 py-2 rounded-full font-bold text-xs hover:bg-[#1fba58] transition-all shadow-md">
+            className="flex items-center gap-1.5 bg-[#1DAA61] text-white px-4 py-2 rounded-full font-bold text-xs hover:bg-[#17964f] transition-all shadow-md">
             <MessageCircle className="w-3.5 h-3.5" />
             WhatsApp
           </a>
@@ -100,7 +100,7 @@ export default function Header() {
           })}
           <div className="flex gap-3 mt-3 pt-3 border-t border-gray-100">
             <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}
-              className="flex-1 flex items-center justify-center gap-2 bg-[#25D366] text-white py-3 rounded-xl font-bold text-sm">
+              className="flex-1 flex items-center justify-center gap-2 bg-[#1DAA61] text-white py-3 rounded-xl font-bold text-sm">
               <MessageCircle className="w-4 h-4" /> WhatsApp
             </a>
             <Link href="/appointment" onClick={() => setIsOpen(false)}

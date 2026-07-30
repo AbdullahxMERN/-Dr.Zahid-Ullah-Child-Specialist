@@ -11,8 +11,7 @@ const degrees = [
     institution: "PIMS – Pakistan Institute of Medical Sciences, Islamabad",
     year: "Feb 2026 – Present · 2nd Fellowship",
     Icon: Trophy,
-    color: "from-[#1a5f7a] to-[#f59e0b]",
-    badgeBg: "bg-gradient-to-br from-[#1a5f7a] to-[#f59e0b]",
+    badgeBg: "bg-indigo-50 border border-indigo-100 text-indigo-600 shadow-indigo-100/50",
     current: true,
     detail: "Specialized sub-fellowship in growth disorders, Type 1 Diabetes management, and advanced endocrine dynamic testing."
   },
@@ -21,8 +20,7 @@ const degrees = [
     institution: "College of Physicians & Surgeons Pakistan",
     year: "Postgraduate Specialization",
     Icon: Medal,
-    color: "from-[#f59e0b] to-[#e67e22]",
-    badgeBg: "bg-gradient-to-br from-[#f59e0b] to-[#e67e22]",
+    badgeBg: "bg-teal-50 border border-teal-100 text-teal-600 shadow-teal-100/50",
     current: false,
     detail: "Full Fellowship in Paediatrics, covering neonatal, acute and chronic paediatric conditions."
   },
@@ -31,8 +29,7 @@ const degrees = [
     institution: "Registered Medical Practitioner – PMC Reg #: 216371-N",
     year: "Medical Licensing",
     Icon: ClipboardList,
-    color: "from-[#2d9596] to-[#3aada8]",
-    badgeBg: "bg-gradient-to-br from-[#2d9596] to-[#3aada8]",
+    badgeBg: "bg-sky-50 border border-sky-100 text-sky-600 shadow-sky-100/50",
     current: false,
     detail: "Licensed to practice medicine in Pakistan under PMC guidelines."
   },
@@ -41,8 +38,7 @@ const degrees = [
     institution: "Ayub Medical College, Khyber Medical University, Peshawar",
     year: "2013",
     Icon: GraduationCap,
-    color: "from-[#1a5f7a] to-[#2d9596]",
-    badgeBg: "bg-gradient-to-br from-[#1a5f7a] to-[#2d9596]",
+    badgeBg: "bg-purple-50 border border-purple-100 text-purple-600 shadow-purple-100/50",
     current: false,
     detail: "Foundation medical degree with clinical rotations in surgery, medicine, and paediatrics."
   },
@@ -55,9 +51,9 @@ const education = [
 ];
 
 const memberships = [
-  { name: "Pakistan Paediatrics Association", short: "PPA", Icon: Users, desc: "National professional body for pediatric medicine in Pakistan.", color: "from-[#00c853] to-[#1b5e20]", iconBg: "bg-gradient-to-br from-[#00c853] to-[#1b5e20]" },
-  { name: "International Society for Pediatric & Adolescent Diabetes", short: "ISPAD", Icon: Globe2, desc: "Global leader in pediatric and adolescent diabetes research and care.", color: "from-[#0288d1] to-[#01579b]", iconBg: "bg-gradient-to-br from-[#0288d1] to-[#01579b]" },
-  { name: "European Society for Paediatric Endocrinology", short: "ESPE", Icon: Award, desc: "Europe's foremost authority in pediatric endocrinology standards.", color: "from-[#1a5f7a] to-[#2d9596]", iconBg: "bg-gradient-to-br from-[#1a5f7a] to-[#2d9596]" },
+  { name: "Pakistan Paediatrics Association", short: "PPA", Icon: Users, desc: "National professional body for pediatric medicine in Pakistan.", iconBg: "bg-emerald-50 border border-emerald-100 text-emerald-600 shadow-emerald-100/50" },
+  { name: "International Society for Pediatric & Adolescent Diabetes", short: "ISPAD", Icon: Globe2, desc: "Global leader in pediatric and adolescent diabetes research and care.", iconBg: "bg-blue-50 border border-blue-100 text-blue-600 shadow-blue-100/50" },
+  { name: "European Society for Paediatric Endocrinology", short: "ESPE", Icon: Award, desc: "Europe's foremost authority in pediatric endocrinology standards.", iconBg: "bg-purple-50 border border-purple-100 text-purple-600 shadow-purple-100/50" },
 ];
 
 const trainingsWorkshops = [
@@ -100,31 +96,62 @@ export default function QualificationsPage() {
       </section>
 
       {/* Degrees Timeline */}
-      <section className="py-20 px-6 md:px-16 bg-gradient-to-b from-[#f0f7fa] to-white">
+      <section className="py-24 px-6 md:px-16 bg-[#fafcff]">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <span className="text-[#2d9596] font-bold text-xs uppercase tracking-[0.2em]">Academic Journey</span>
-            <h2 className="font-headline text-3xl font-bold text-[#1a5f7a] mt-2">Degrees & Certifications</h2>
+            <h2 className="font-headline text-3xl md:text-4xl font-bold text-[#1a5f7a] mt-2">Degrees &amp; Certifications</h2>
+            <div className="w-16 h-1.5 bg-[#2d9596] mx-auto rounded-full mt-4" />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {degrees.map((d, i) => {
               const DegIcon = d.Icon;
               return (
-              <motion.div key={d.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                className={`relative bg-white rounded-2xl shadow-lg border ${d.current ? "border-[#2d9596]/30" : "border-gray-100"} p-6 overflow-hidden group hover:shadow-xl transition-all`}>
-                {d.current && <span className="absolute top-4 right-4 px-2.5 py-0.5 rounded-full bg-[#2d9596] text-white text-[10px] font-bold uppercase tracking-wider">Current</span>}
-                <div className={`absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b ${d.color} rounded-l-2xl`} />
-                <div className="pl-4">
-                  <div className={`w-12 h-12 rounded-xl ${d.badgeBg} flex items-center justify-center text-white shadow-md mb-4`}>
-                    <DegIcon className="w-6 h-6" />
+                <motion.div 
+                  key={d.title} 
+                  initial={{ opacity: 0, y: 20 }} 
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }} 
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="group relative bg-white rounded-3xl border border-gray-100 p-8 shadow-[0_8px_30px_rgba(0,0,0,0.015)] hover:shadow-[0_15px_45px_rgba(26,95,122,0.06)] hover:-translate-y-1 active:scale-[0.98] transition-transform duration-300 flex flex-col justify-between overflow-hidden"
+                >
+                  {/* Top decorative line on hover */}
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1a5f7a] to-[#2d9596] rounded-t-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  {/* Radial background glow on hover */}
+                  <div className="absolute right-0 top-0 w-40 h-40 rounded-full bg-[#1a5f7a]/2 blur-3xl pointer-events-none group-hover:bg-[#2d9596]/5 transition-colors duration-500" />
+                  
+                  <div className="space-y-5 relative z-10">
+                    {/* Header: Icon & Badge */}
+                    <div className="flex items-center justify-between">
+                      <div className={`w-12 h-12 rounded-2xl ${d.badgeBg} shadow-sm group-hover:scale-105 transition-transform duration-300 flex items-center justify-center shrink-0`}>
+                        <DegIcon className="w-6 h-6" />
+                      </div>
+                      {d.current && (
+                        <span className="px-3 py-1 rounded-full bg-[#2d9596]/10 text-[#2d9596] text-[10px] font-extrabold uppercase tracking-wider border border-[#2d9596]/20 shadow-sm">
+                          Current Specialization
+                        </span>
+                      )}
+                    </div>
+
+                    <div className="space-y-2">
+                      <span className="inline-block text-[10px] font-extrabold uppercase tracking-widest text-[#2d9596]">
+                        {d.year}
+                      </span>
+                      <h3 className="font-headline text-xl md:text-2xl font-bold text-[#1a5f7a] leading-tight group-hover:text-[#2d9596] transition-colors duration-300">
+                        {d.title}
+                      </h3>
+                      <p className="text-sm text-gray-500 font-semibold leading-relaxed">
+                        {d.institution}
+                      </p>
+                    </div>
+
+                    <p className="text-xs text-gray-400 leading-relaxed font-medium pt-2 border-t border-gray-100/85">
+                      {d.detail}
+                    </p>
                   </div>
-                  <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">{d.year}</span>
-                  <h3 className="font-headline text-xl font-bold text-[#1a5f7a] mt-1 mb-1">{d.title}</h3>
-                  <p className="text-sm text-gray-500 font-medium mb-2">{d.institution}</p>
-                  <p className="text-xs text-gray-400 leading-relaxed">{d.detail}</p>
-                </div>
-              </motion.div>
+                </motion.div>
               );
             })}
           </div>
@@ -158,26 +185,50 @@ export default function QualificationsPage() {
       </section>
 
       {/* Memberships */}
-      <section className="py-20 px-6 md:px-16 bg-gradient-to-b from-[#f0f7fa] to-white">
+      <section className="py-24 px-6 md:px-16 bg-gradient-to-b from-[#fafcff] to-white">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <span className="text-[#2d9596] font-bold text-xs uppercase tracking-[0.2em]">Professional Bodies</span>
             <h2 className="font-headline text-3xl font-bold text-[#1a5f7a] mt-2">International Memberships</h2>
+            <div className="w-16 h-1.5 bg-[#2d9596] mx-auto rounded-full mt-4" />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {memberships.map((m, i) => {
               const MIcon = m.Icon;
               return (
-              <motion.div key={m.short} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                className="bg-white rounded-2xl p-7 shadow-lg border border-gray-100 text-center hover:shadow-xl transition-all group">
-                <div className={`w-16 h-16 rounded-2xl ${m.iconBg} flex items-center justify-center text-white mx-auto mb-4 shadow-lg group-hover:scale-105 transition-transform`}>
-                  <MIcon className="w-8 h-8" />
-                </div>
-                <div className={`inline-block px-3 py-1 rounded-full bg-gradient-to-r ${m.color} text-white text-xs font-bold mb-3`}>{m.short}</div>
-                <h3 className="font-bold text-sm text-gray-800 mb-2 leading-snug">{m.name}</h3>
-                <p className="text-xs text-gray-500 leading-relaxed">{m.desc}</p>
-              </motion.div>
+                <motion.div 
+                  key={m.short} 
+                  initial={{ opacity: 0, y: 20 }} 
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }} 
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="group relative bg-white rounded-3xl border border-gray-100 p-8 text-center shadow-[0_8px_30px_rgba(0,0,0,0.015)] hover:shadow-[0_15px_45px_rgba(26,95,122,0.06)] hover:-translate-y-1 active:scale-[0.98] transition-transform duration-300 flex flex-col justify-between items-center overflow-hidden"
+                >
+                  {/* Top decorative line on hover */}
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1a5f7a] to-[#2d9596] rounded-t-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  {/* Radial background glow on hover */}
+                  <div className="absolute right-0 top-0 w-32 h-32 rounded-full bg-[#1a5f7a]/2 blur-3xl pointer-events-none group-hover:bg-[#2d9596]/5 transition-colors duration-500" />
+                  
+                  <div className="space-y-4 relative z-10 w-full flex flex-col items-center">
+                    <div className={`w-14 h-14 rounded-2xl ${m.iconBg} group-hover:scale-105 transition-transform duration-300 flex items-center justify-center shrink-0`}>
+                      <MIcon className="w-6 h-6" />
+                    </div>
+                    
+                    <div className="inline-block px-3 py-1 rounded-full bg-[#2d9596]/10 text-[#2d9596] border border-[#2d9596]/20 text-[10px] font-extrabold uppercase tracking-wider">
+                      {m.short}
+                    </div>
+                    
+                    <h3 className="font-headline text-base font-bold text-[#1a5f7a] leading-snug group-hover:text-[#2d9596] transition-colors duration-300">
+                      {m.name}
+                    </h3>
+                    
+                    <p className="text-xs text-gray-400 leading-relaxed font-medium pt-4 border-t border-gray-100/80 w-full">
+                      {m.desc}
+                    </p>
+                  </div>
+                </motion.div>
               );
             })}
           </div>
@@ -233,7 +284,7 @@ export default function QualificationsPage() {
         <h2 className="font-headline text-3xl font-bold mb-3">Trust Your Child to Expert Hands</h2>
         <p className="text-white/80 mb-8 max-w-xl mx-auto">Book a consultation with Dr. Zahid Ullah at G-8 Markaz, Islamabad — Mon to Fri.</p>
         <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1fba58] text-white px-10 py-4 rounded-full font-bold text-lg shadow-xl transition-all active:scale-95">
+          className="inline-flex items-center gap-2 bg-[#1DAA61] hover:bg-[#17964f] text-white px-10 py-4 rounded-full font-bold text-lg shadow-xl transition-all active:scale-95">
           <MessageCircle className="w-6 h-6" />
           Book via WhatsApp
         </a>

@@ -23,6 +23,40 @@ import {
 } from "lucide-react";
 
 const WHATSAPP_LINK = `https://wa.me/923469297818?text=${encodeURIComponent("Hello Dr. Zahid, I'd like to book an appointment.")}`;
+const MAPS_LINK = "https://maps.google.com/?q=Muhammad+Medical+Centre+G8+Markaz+Islamabad";
+
+// ─── Count-up hook (module-level = stable, never remounts) ────────────────────
+function useCountUp(end, duration = 1800, decimal = false) {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    let startTime = null;
+    const step = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3); // ease out cubic
+      const current = eased * end;
+      setCount(decimal ? parseFloat(current.toFixed(1)) : Math.floor(current));
+      if (progress < 1) requestAnimationFrame(step);
+      else setCount(end);
+    };
+    requestAnimationFrame(step);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // empty deps = fires once on mount, never again
+  return count;
+}
+
+function StatCounter({ stat }) {
+  const count = useCountUp(stat.end, stat.end >= 1000 ? 2000 : 1400, stat.decimal);
+  return (
+    <div className="text-center">
+      <p className="font-headline text-lg sm:text-3xl font-bold text-white tabular-nums">
+        {count}{stat.suffix}
+      </p>
+      <p className="text-white/70 text-[10px] sm:text-xs font-medium mt-0.5 sm:mt-1 leading-tight">{stat.label}</p>
+    </div>
+  );
+}
+// ─────────────────────────────────────────────────────────────────────────────
 
 export default function Home() {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
@@ -102,36 +136,37 @@ export default function Home() {
   }, [testimonials.length]);
 
   const stats = [
-    { value: "10+", label: "Years Experience" },
-    { value: "5000+", label: "Patients Treated" },
-    { value: "25+", label: "Specialty Services" },
-    { value: "4.9★", label: "Google Rating" },
+    { end: 10,   suffix: "+", label: "Years Experience" },
+    { end: 5000, suffix: "+", label: "Patients Treated" },
+    { end: 25,   suffix: "+", label: "Specialty Services" },
+    { end: 4.9,  suffix: "★", label: "Google Rating", decimal: true },
   ];
+
 
   const specializations = [
     {
       icon: TrendingUp,
       title: "Growth Disorders",
       desc: "Expert evaluation for short/tall stature, growth hormone deficiency, and pubertal disorders.",
-      color: "from-[#1a5f7a] to-[#2d9596]",
+      color: "bg-teal-50 border border-teal-100 text-teal-600 shadow-teal-100/50",
     },
     {
       icon: Activity,
       title: "Diabetes Management",
       desc: "Comprehensive Type 1 & 2 diabetes care with insulin pump therapy, CGM & modern protocols.",
-      color: "from-[#0d9488] to-[#2d9596]",
+      color: "bg-emerald-50 border border-emerald-100 text-emerald-600 shadow-emerald-100/50",
     },
     {
       icon: Baby,
       title: "Neonatal Care",
       desc: "Complete newborn check-ups, jaundice management, infantile colic, and feeding issues.",
-      color: "from-[#f59e0b] to-[#e67e22]",
+      color: "bg-pink-50 border border-pink-100 text-pink-600 shadow-pink-100/50",
     },
     {
       icon: Heart,
       title: "General Paediatrics",
       desc: "Routine consultations, respiratory infections, tonsillitis, anemia, fever, and chronic diseases.",
-      color: "from-[#7c3aed] to-[#1a5f7a]",
+      color: "bg-purple-50 border border-purple-100 text-purple-600 shadow-purple-100/50",
     },
   ];
 
@@ -177,17 +212,17 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 pt-1">
               <Link
                 href="/appointment"
-                className="flex items-center justify-center gap-2 bg-[#1a5f7a] text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-[#154f67] shadow-lg shadow-[#1a5f7a]/20 hover:shadow-xl transition-all group active:scale-95"
+                className="flex items-center justify-center gap-2 bg-[#1a5f7a] text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-[#154f67] shadow-lg shadow-[#1a5f7a]/20 hover:shadow-xl transition-all active:scale-95"
               >
                 <Calendar className="w-4 h-4" />
                 Book Appointment
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4" />
               </Link>
               <a
                 href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 bg-[#25D366] text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-[#1fba58] shadow-lg transition-all active:scale-95"
+                className="flex items-center justify-center gap-2 bg-[#1DAA61] text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-[#17964f] shadow-lg transition-all active:scale-95"
               >
                 <MessageCircle className="w-4 h-4" />
                 WhatsApp Dr. Zahid
@@ -220,11 +255,11 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative w-full max-w-[340px] sm:max-w-[400px] mx-auto lg:max-w-none mt-6 lg:mt-0"
+            className="relative w-full max-w-[290px] sm:max-w-[340px] lg:max-w-[370px] xl:max-w-[390px] mx-auto lg:ml-auto mt-16 sm:mt-10 lg:mt-0"
           >
-            <div className="relative mx-auto max-w-sm lg:max-w-none">
-              {/* Premium responsive container: Aspect 3:4 on both mobile and desktop */}
-              <div className="relative z-10 rounded-[2.5rem] overflow-hidden border-8 border-white shadow-2xl aspect-[3/4] bg-gradient-to-br from-[#1a5f7a] to-[#2d9596]">
+            <div className="relative mx-auto w-full">
+              {/* Premium responsive container: Aspect 4:5 to show more details and prevent vertical overflow */}
+              <div className="relative z-10 rounded-[2.5rem] overflow-hidden border-8 border-white shadow-2xl aspect-[4/5] bg-gradient-to-br from-[#1a5f7a] to-[#2d9596]">
                 <img
                   src="/dr-zahid.jpg"
                   alt="Dr. Zahid Ullah – Consultant Pediatrician"
@@ -232,37 +267,36 @@ export default function Home() {
                 />
               </div>
 
-              {/* Floating Badge Top Right */}
+              {/* Floating Badge Top Right — compact size sits in corner above/beside face */}
               <motion.div
                 initial={{ y: -15, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.5 }}
-                className="absolute top-6 -right-2 sm:-right-4 bg-white p-3.5 sm:p-4 rounded-2xl shadow-xl border border-gray-100 z-20"
+                className="absolute top-3 -right-3 sm:-right-4 bg-white p-1.5 sm:p-3 rounded-lg sm:rounded-2xl shadow-xl border border-gray-100 z-20"
               >
-                <div className="flex items-center gap-2 sm:gap-2.5">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-[#1a5f7a]/10 flex items-center justify-center">
-                    <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-[#1a5f7a]" />
+                <div className="flex items-center gap-1 sm:gap-2">
+                  <div className="w-5 h-5 sm:w-8 sm:h-8 rounded-md sm:rounded-xl bg-[#1a5f7a]/10 flex items-center justify-center shrink-0">
+                    <TrendingUp className="w-2.5 h-2.5 sm:w-4 sm:h-4 text-[#1a5f7a]" />
                   </div>
                   <div>
-                    <p className="font-headline text-lg sm:text-xl font-bold text-[#1a5f7a] leading-none">5000+</p>
-                    <p className="text-[9px] sm:text-[10px] text-gray-400 font-semibold mt-0.5">Patients Treated</p>
+                    <p className="font-headline text-xs sm:text-base font-bold text-[#1a5f7a] leading-none">5000+</p>
+                    <p className="text-[7px] sm:text-[10px] text-gray-400 font-semibold mt-0.5">Patients Treated</p>
                   </div>
                 </div>
               </motion.div>
 
-              {/* Floating Badge Bottom Left */}
+              {/* Floating Badge Bottom Left — Available Now */}
               <motion.div
                 initial={{ y: 15, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.6 }}
-                className="absolute -bottom-4 -left-2 sm:-left-4 bg-white p-3.5 sm:p-4 rounded-2xl shadow-xl border border-gray-100 z-20 max-w-[180px] sm:max-w-[200px]"
+                className="absolute -bottom-4 -left-2 sm:-left-4 bg-white p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl shadow-xl border border-gray-100 z-20 max-w-[140px] sm:max-w-[180px]"
               >
-                <div className="flex items-center gap-1.5 sm:gap-2">
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#25D366] animate-pulse" />
-                  <span className="text-[9px] sm:text-[10px] font-bold text-[#25D366] uppercase tracking-widest">Available Now</span>
+                <div className="flex items-center gap-1.5">
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#1DAA61] animate-pulse shrink-0" />
+                  <p className="text-xs sm:text-sm font-headline font-bold text-[#1a5f7a]">Mon – Fri</p>
                 </div>
-                <p className="text-xs sm:text-sm font-headline font-bold text-[#1a5f7a] mt-1">Mon – Fri</p>
-                <p className="text-[10px] sm:text-[11px] text-gray-400 leading-snug">G-8 Markaz, Islamabad</p>
+                <p className="text-[9px] sm:text-[10px] text-gray-400 leading-snug mt-0.5">G-8 Markaz, Islamabad</p>
               </motion.div>
             </div>
           </motion.div>
@@ -270,13 +304,10 @@ export default function Home() {
       </section>
 
       {/* STATS BAR */}
-      <section className="bg-[#1a5f7a] py-8 px-6">
-        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+      <section className="bg-[#1a5f7a] py-5 sm:py-8 px-4 sm:px-6">
+        <div className="max-w-5xl mx-auto grid grid-cols-4 gap-2 sm:gap-6">
           {stats.map((s) => (
-            <div key={s.label} className="text-center">
-              <p className="font-headline text-3xl font-bold text-white">{s.value}</p>
-              <p className="text-white/70 text-xs font-medium mt-1">{s.label}</p>
-            </div>
+            <StatCounter key={s.label} stat={s} />
           ))}
         </div>
       </section>
@@ -297,21 +328,22 @@ export default function Home() {
           {specializations.map((s) => {
             const Icon = s.icon;
             return (
-              <div
+              <motion.div
                 key={s.title}
-                className="bg-white border border-gray-100 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col gap-5"
+                whileTap={{ scale: 0.97 }}
+                className="bg-white border border-gray-100 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col gap-5 cursor-pointer active:scale-[0.97]"
               >
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${s.color} flex items-center justify-center text-white shadow-lg shrink-0`}>
-                  <Icon className="w-7 h-7" />
+                <div className={`w-14 h-14 rounded-2xl ${s.color} flex items-center justify-center shrink-0`}>
+                  <Icon className="w-6 h-6" />
                 </div>
                 <div className="flex-grow">
                   <h3 className="font-headline text-lg font-bold text-[#1a5f7a] mb-2">{s.title}</h3>
                   <p className="text-sm text-gray-500 leading-relaxed">{s.desc}</p>
                 </div>
-                <Link href="/services" className="text-[#2d9596] font-bold text-sm flex items-center gap-1 group-hover:text-[#1a5f7a] transition-colors">
-                  View All Services <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <Link href="/services" className="text-[#2d9596] font-bold text-sm flex items-center gap-1 hover:text-[#1a5f7a] transition-colors">
+                  View All Services <ArrowRight className="w-4 h-4 ml-0.5" />
                 </Link>
-              </div>
+              </motion.div>
             );
           })}
         </div>
@@ -395,6 +427,89 @@ export default function Home() {
         </div>
       </section>
 
+      {/* GOOGLE MAP SECTION */}
+      <section className="py-20 px-6 md:px-16 bg-gradient-to-br from-white to-[#f0f7fa]">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Details Column */}
+            <div className="lg:col-span-5 space-y-6">
+              <span className="text-[#2d9596] font-bold text-xs uppercase tracking-[0.2em]">
+                Convenient Location
+              </span>
+              <h2 className="font-headline text-3xl md:text-4xl font-bold text-[#1a5f7a]">
+                Visit Our Clinic
+              </h2>
+              <div className="w-16 h-1.5 bg-[#2d9596] rounded-full mt-2" />
+              
+              <p className="text-gray-500 leading-relaxed">
+                Dr. Zahid Ullah consults at **Muhammad Medical Centre**, centrally located in the heart of Islamabad at G-8 Markaz. The clinic is easily accessible with ample parking space.
+              </p>
+
+              <div className="space-y-4 pt-4">
+                <div className="flex gap-4">
+                  <div className="w-11 h-11 rounded-xl bg-[#1a5f7a]/10 flex items-center justify-center shrink-0">
+                    <MapPin className="w-5 h-5 text-[#1a5f7a]" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-sm text-[#1a5f7a]">Clinic Address</h4>
+                    <p className="text-xs text-gray-500 mt-0.5">Muhammad Medical Centre, G-8 Markaz, Islamabad, Pakistan</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="w-11 h-11 rounded-xl bg-[#1a5f7a]/10 flex items-center justify-center shrink-0">
+                    <Calendar className="w-5 h-5 text-[#1a5f7a]" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-sm text-[#1a5f7a]">Timings &amp; Availability</h4>
+                    <p className="text-xs text-gray-500 mt-0.5">Monday – Friday: 05:00 PM – 09:00 PM</p>
+                    <p className="text-xs text-gray-400 mt-0.5">(Saturday &amp; Sunday Closed)</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4 pt-6">
+                <a
+                  href={MAPS_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 bg-[#1a5f7a] text-white px-8 py-3.5 rounded-full font-bold text-sm hover:bg-[#154f67] shadow-lg shadow-[#1a5f7a]/20 hover:shadow-xl transition-all active:scale-95"
+                >
+                  <MapPin className="w-4 h-4" />
+                  Get Directions
+                </a>
+                <Link
+                  href="/appointment"
+                  className="flex items-center justify-center gap-2 border border-[#1a5f7a]/30 text-[#1a5f7a] px-8 py-3.5 rounded-full font-bold text-sm hover:bg-[#1a5f7a]/5 transition-all active:scale-95"
+                >
+                  Book an Appointment
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Map Column */}
+            <div className="lg:col-span-7">
+              <div className="bg-white rounded-[2rem] shadow-2xl border border-gray-100/80 overflow-hidden p-4 md:p-6">
+                <div className="rounded-[1.5rem] overflow-hidden border border-gray-100 shadow-inner relative aspect-[16/10] md:aspect-[16/9]">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3319.8!2d73.0479!3d33.6932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfbef9b6b8f6b1%3A0x0!2sMuhammad+Medical+Centre%2C+G8+Markaz%2C+Islamabad!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Muhammad Medical Centre Location Map"
+                    className="absolute inset-0 w-full h-full"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA BANNER */}
       <section className="py-20 px-6 md:px-16 bg-gradient-to-br from-[#1a5f7a] via-[#1d6e85] to-[#2d9596] text-white relative overflow-hidden text-center">
         <div className="relative z-10 max-w-3xl mx-auto space-y-6">
@@ -415,7 +530,7 @@ export default function Home() {
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto bg-[#25D366] hover:bg-[#1fba58] text-white px-10 py-4 rounded-full font-bold text-sm flex items-center justify-center gap-2 transition-all active:scale-95 shadow-lg"
+              className="w-full sm:w-auto bg-[#1DAA61] hover:bg-[#17964f] text-white px-10 py-4 rounded-full font-bold text-sm flex items-center justify-center gap-2 transition-all active:scale-95 shadow-lg"
             >
               <MessageCircle className="w-4 h-4" /> WhatsApp: 0346 9297818
             </a>
