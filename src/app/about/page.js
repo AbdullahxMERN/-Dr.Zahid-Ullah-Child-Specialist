@@ -124,7 +124,7 @@ export default function AboutPage() {
           <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.2 }}
             className="w-52 h-52 md:w-64 md:h-64 rounded-3xl bg-white/10 border-4 border-white/30 flex items-center justify-center shrink-0 shadow-2xl overflow-hidden">
             <img
-              src="https://lh3.googleusercontent.com/aida/AP1WRLtKMOKvtlstINcTqFrQxqS35J4QiFqAXfnndfUkfvKPDsvUqv6wdNzjhwO4fR5H0IKcFQg_gLt_KZnGk0v89n4qGZRbJFj-NiFkjhzStBePNDlJle94SjcKGyFPN1GdqyqvzWbvsNo3BGCTdbny-9KmcGd_U5Hc9YEodz4XYy8qSqg0oYX2_hUKnPLVXBXYlbg1QcvR9-op8YKFclXTRoM8JK0RQlA8CKo40NT3j3FxjvxYPd_dU9j_2A"
+              src="/dr-zahid.jpg"
               alt="Dr. Zahid Ullah"
               className="w-full h-full object-cover"
             />

@@ -220,41 +220,15 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative"
+            className="relative w-full max-w-[340px] sm:max-w-[400px] mx-auto lg:max-w-none mt-6 lg:mt-0"
           >
-            <div className="relative">
-              {/* Mobile: compact horizontal card style */}
-              <div className="lg:hidden flex items-center gap-4 bg-white/80 backdrop-blur-sm rounded-2xl p-4 border border-[#1a5f7a]/10 shadow-lg">
-                <div className="relative shrink-0">
-                  <div className="w-28 h-28 rounded-2xl overflow-hidden border-4 border-white shadow-xl bg-gradient-to-br from-[#1a5f7a] to-[#2d9596]">
-                    <img
-                      src="https://lh3.googleusercontent.com/aida/AP1WRLtKMOKvtlstINcTqFrQxqS35J4QiFqAXfnndfUkfvKPDsvUqv6wdNzjhwO4fR5H0IKcFQg_gLt_KZnGk0v89n4qGZRbJFj-NiFkjhzStBePNDlJle94SjcKGyFPN1GdqyqvzWbvsNo3BGCTdbny-9KmcGd_U5Hc9YEodz4XYy8qSqg0oYX2_hUKnPLVXBXYlbg1QcvR9-op8YKFclXTRoM8JK0RQlA8CKo40NT3j3FxjvxYPd_dU9j_2A"
-                      alt="Dr. Zahid Ullah – Consultant Pediatrician"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-[#25D366] border-2 border-white animate-pulse" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="font-bold text-[#1a5f7a] text-sm">Dr. Zahid Ullah</p>
-                  <p className="text-xs text-gray-500 mt-0.5">MBBS · FCPS · Fellow Endocrinology</p>
-                  <div className="flex items-center gap-1 mt-2">
-                    {[1,2,3,4,5].map(s => <Star key={s} className="w-3 h-3 fill-[#f59e0b] text-[#f59e0b]" />)}
-                    <span className="text-[10px] font-bold text-gray-500 ml-1">4.9 Google</span>
-                  </div>
-                  <div className="flex items-center gap-1.5 mt-1.5">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#25D366]" />
-                    <span className="text-[10px] font-semibold text-gray-500">Available · G-8 Markaz, Islamabad</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Desktop: tall portrait card */}
-              <div className="hidden lg:block relative z-10 rounded-[2.5rem] overflow-hidden border-8 border-white shadow-2xl aspect-[3/4] max-w-sm mx-auto bg-gradient-to-br from-[#1a5f7a] to-[#2d9596]">
+            <div className="relative mx-auto max-w-sm lg:max-w-none">
+              {/* Premium responsive container: Aspect 3:4 on both mobile and desktop */}
+              <div className="relative z-10 rounded-[2.5rem] overflow-hidden border-8 border-white shadow-2xl aspect-[3/4] bg-gradient-to-br from-[#1a5f7a] to-[#2d9596]">
                 <img
-                  src="https://lh3.googleusercontent.com/aida/AP1WRLtKMOKvtlstINcTqFrQxqS35J4QiFqAXfnndfUkfvKPDsvUqv6wdNzjhwO4fR5H0IKcFQg_gLt_KZnGk0v89n4qGZRbJFj-NiFkjhzStBePNDlJle94SjcKGyFPN1GdqyqvzWbvsNo3BGCTdbny-9KmcGd_U5Hc9YEodz4XYy8qSqg0oYX2_hUKnPLVXBXYlbg1QcvR9-op8YKFclXTRoM8JK0RQlA8CKo40NT3j3FxjvxYPd_dU9j_2A"
+                  src="/dr-zahid.jpg"
                   alt="Dr. Zahid Ullah – Consultant Pediatrician"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
 
@@ -263,15 +237,15 @@ export default function Home() {
                 initial={{ y: -15, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.5 }}
-                className="absolute top-6 -right-4 bg-white p-4 rounded-2xl shadow-xl border border-gray-100 z-20"
+                className="absolute top-6 -right-2 sm:-right-4 bg-white p-3.5 sm:p-4 rounded-2xl shadow-xl border border-gray-100 z-20"
               >
-                <div className="flex items-center gap-2.5">
-                  <div className="w-10 h-10 rounded-xl bg-[#1a5f7a]/10 flex items-center justify-center">
-                    <TrendingUp className="w-5 h-5 text-[#1a5f7a]" />
+                <div className="flex items-center gap-2 sm:gap-2.5">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-[#1a5f7a]/10 flex items-center justify-center">
+                    <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-[#1a5f7a]" />
                   </div>
                   <div>
-                    <p className="font-headline text-xl font-bold text-[#1a5f7a] leading-none">5000+</p>
-                    <p className="text-[10px] text-gray-400 font-semibold mt-0.5">Patients Treated</p>
+                    <p className="font-headline text-lg sm:text-xl font-bold text-[#1a5f7a] leading-none">5000+</p>
+                    <p className="text-[9px] sm:text-[10px] text-gray-400 font-semibold mt-0.5">Patients Treated</p>
                   </div>
                 </div>
               </motion.div>
@@ -281,14 +255,14 @@ export default function Home() {
                 initial={{ y: 15, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.6 }}
-                className="absolute -bottom-4 -left-4 bg-white p-4 rounded-2xl shadow-xl border border-gray-100 z-20 max-w-[200px]"
+                className="absolute -bottom-4 -left-2 sm:-left-4 bg-white p-3.5 sm:p-4 rounded-2xl shadow-xl border border-gray-100 z-20 max-w-[180px] sm:max-w-[200px]"
               >
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5 sm:gap-2">
                   <div className="w-2.5 h-2.5 rounded-full bg-[#25D366] animate-pulse" />
-                  <span className="text-[10px] font-bold text-[#25D366] uppercase tracking-widest">Available Now</span>
+                  <span className="text-[9px] sm:text-[10px] font-bold text-[#25D366] uppercase tracking-widest">Available Now</span>
                 </div>
-                <p className="text-sm font-headline font-bold text-[#1a5f7a] mt-1">Mon – Fri</p>
-                <p className="text-[11px] text-gray-400 leading-snug">G-8 Markaz, Islamabad</p>
+                <p className="text-xs sm:text-sm font-headline font-bold text-[#1a5f7a] mt-1">Mon – Fri</p>
+                <p className="text-[10px] sm:text-[11px] text-gray-400 leading-snug">G-8 Markaz, Islamabad</p>
               </motion.div>
             </div>
           </motion.div>
