@@ -119,7 +119,7 @@ export default function Footer() {
               <MapPin className="w-4 h-4 text-[#2d9596] shrink-0 mt-0.5" />
               <div>
                 <p className="text-xs font-bold text-white/40 uppercase tracking-wide mb-1">
-                  Clinic Location pakistan
+                  Clinic Location
                 </p>
                 <span className="text-sm text-white/80 font-semibold">
                   Muhammad Medical Centre
