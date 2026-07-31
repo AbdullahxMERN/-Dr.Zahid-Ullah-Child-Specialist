@@ -174,12 +174,9 @@ export default function Home() {
     <>
       {/* HERO SECTION */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-[#f0f7fa] via-white to-[#e8f4f8]">
-        <div className="absolute inset-0 z-0 pointer-events-none">
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-[#1a5f7a]/5 blur-[120px]" />
-          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full bg-[#2d9596]/5 blur-[100px]" />
-        </div>
+        <div className="absolute inset-0 z-0 pointer-events-none" />
 
-        <div className="relative z-10 px-6 md:px-16 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full py-16">
+        <div className="relative z-10 px-6 md:px-16 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full py-9">
           {/* Left Text */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -187,14 +184,11 @@ export default function Home() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="space-y-7"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1a5f7a]/10 text-[#1a5f7a] font-bold text-xs border border-[#1a5f7a]/20 shadow-sm">
-              <Award className="w-4 h-4" />
-              PIMS Islamabad · Pediatric Endocrinology Fellow
-            </div>
+        
 
             <div>
               <p className="text-[#2d9596] font-bold text-sm uppercase tracking-[0.15em] mb-2">Consultant Child Specialist</p>
-              <h1 className="font-headline text-5xl sm:text-6xl lg:text-7xl text-[#1a5f7a] leading-[1.05] tracking-tight font-bold">
+              <h1 className="font-headline text-4xl sm:text-5xl lg:text-7xl text-[#1a5f7a] leading-[1.05] tracking-tight font-bold">
                 Dr. Zahid<br />
                 <span className="text-[#2d9596] italic font-normal">Ullah</span>
               </h1>
@@ -229,25 +223,7 @@ export default function Home() {
               </a>
             </div>
 
-            {/* Trust Badges */}
-            <div className="flex flex-wrap items-center gap-6 pt-2 border-t border-gray-200/60">
-              <div className="flex items-center gap-2">
-                <div className="flex gap-0.5">
-                  {[1, 2, 3, 4, 5].map((s) => (
-                    <Star key={s} className="w-4 h-4 fill-[#f59e0b] text-[#f59e0b]" />
-                  ))}
-                </div>
-                <span className="text-xs text-gray-600 font-bold">4.9 Google Rating</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Shield className="w-4 h-4 text-[#2d9596]" />
-                <span className="text-xs text-gray-600 font-bold">Verified Specialist</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-[#2d9596]" />
-                <span className="text-xs text-gray-600 font-bold">G-8 Markaz, Islamabad</span>
-              </div>
-            </div>
+          
           </motion.div>
 
           {/* Right — Doctor Visual Card */}
@@ -324,20 +300,20 @@ export default function Home() {
           <div className="w-16 h-1.5 bg-[#2d9596] mx-auto rounded-full mt-4" />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {specializations.map((s) => {
             const Icon = s.icon;
             return (
               <motion.div
                 key={s.title}
                 whileTap={{ scale: 0.97 }}
-                className="bg-white border border-gray-100 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col gap-5 cursor-pointer active:scale-[0.97]"
+                className="bg-white border border-gray-100 rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col gap-5 cursor-pointer active:scale-[0.97] hover:border-[#1a5f7a]/20"
               >
                 <div className={`w-14 h-14 rounded-2xl ${s.color} flex items-center justify-center shrink-0`}>
                   <Icon className="w-6 h-6" />
                 </div>
                 <div className="flex-grow">
-                  <h3 className="font-headline text-lg font-bold text-[#1a5f7a] mb-2">{s.title}</h3>
+                  <h3 className="font-headline text-base sm:text-lg font-bold text-[#1a5f7a] mb-2">{s.title}</h3>
                   <p className="text-sm text-gray-500 leading-relaxed">{s.desc}</p>
                 </div>
                 <Link href="/services" className="text-[#2d9596] font-bold text-sm flex items-center gap-1 hover:text-[#1a5f7a] transition-colors">
@@ -462,7 +438,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h4 className="font-bold text-sm text-[#1a5f7a]">Timings &amp; Availability</h4>
-                    <p className="text-xs text-gray-500 mt-0.5">Monday – Friday: 05:00 PM – 09:00 PM</p>
+                    <p className="text-xs text-gray-500 mt-0.5">Monday – Friday</p>
                     <p className="text-xs text-gray-400 mt-0.5">(Saturday &amp; Sunday Closed)</p>
                   </div>
                 </div>

@@ -24,6 +24,7 @@ export default function Header() {
     { name: "Qualifications", href: "/qualifications" },
     { name: "Services", href: "/services" },
     { name: "Reviews", href: "/reviews" },
+    { name: "FAQ", href: "/faq" },
     { name: "Contact", href: "/contact" },
     { name: "Appointment", href: "/appointment" },
   ];
@@ -31,8 +32,8 @@ export default function Header() {
   return (
     <header className={`sticky top-0 w-full z-50 transition-all duration-200 ${
       isScrolled
-        ? "bg-white/97 backdrop-blur-md shadow-md border-b border-gray-100 py-3"
-        : "bg-white/90 backdrop-blur-sm py-4 border-b border-gray-100/50"
+        ? "bg-white shadow-md border-b border-gray-100 py-3"
+        : "bg-white py-4 border-b border-gray-100/50"
     }`}>
       <nav className="flex justify-between items-center px-5 md:px-12 max-w-7xl mx-auto">
         {/* Brand */}

@@ -206,7 +206,7 @@ export default function ServicesPage() {
 
       {/* Services Grid */}
       <section className="py-16 px-4 sm:px-6 md:px-16 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {servicesList.map((item, i) => {
             const IconComp = item.icon;
             return (
@@ -216,35 +216,37 @@ export default function ServicesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.02 }}
-                className="bg-white border border-gray-200/80 rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:border-[#1a5f7a]/30"
+                whileTap={{ scale: 0.97 }}
+                className="bg-white border border-gray-200/80 rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between hover:border-[#1a5f7a]/30 active:scale-[0.98]"
               >
                 <div>
                   {/* Category Pill + Icon */}
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#2d9596] bg-[#2d9596]/10 px-3 py-1 rounded-full">
+                    <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#2d9596] bg-[#2d9596]/10 px-3 py-1 rounded-full">
                       {item.category}
                     </span>
-                    <div className="w-10 h-10 rounded-xl bg-[#1a5f7a]/10 flex items-center justify-center text-[#1a5f7a] group-hover:bg-[#1a5f7a] group-hover:text-white transition-colors">
+                    {/* Icon always colored — works on both web & mobile */}
+                    <div className="w-10 h-10 rounded-xl bg-[#1a5f7a] flex items-center justify-center text-white shadow-sm">
                       <IconComp className="w-5 h-5" />
                     </div>
                   </div>
 
                   {/* Title & Desc */}
-                  <h3 className="font-headline text-lg font-bold text-[#1a5f7a] mb-2 leading-snug">
+                  <h3 className="font-headline text-base sm:text-lg font-bold text-[#1a5f7a] mb-2 leading-snug">
                     {item.name}
                   </h3>
-                  <p className="text-xs text-gray-500 leading-relaxed mb-6">
+                  <p className="text-xs text-gray-500 leading-relaxed mb-5">
                     {item.desc}
                   </p>
                 </div>
 
-                {/* Real Styled Action Button */}
-                <div className="pt-3 border-t border-gray-100 flex gap-2">
+                {/* Action Button */}
+                <div className="pt-3 border-t border-gray-100">
                   <a
                     href={getWhatsAppLink(item.name)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full bg-[#008c8c] hover:bg-[#007474] text-white py-2.5 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-sm transition-all active:scale-95"
+                    className="w-full bg-[#008c8c] hover:bg-[#007474] active:bg-[#006060] text-white py-3 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-sm transition-all active:scale-95"
                   >
                     <MessageCircle className="w-3.5 h-3.5 fill-white" />
                     Book Appointment

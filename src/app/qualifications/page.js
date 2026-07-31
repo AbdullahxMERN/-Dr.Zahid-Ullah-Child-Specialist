@@ -80,10 +80,7 @@ export default function QualificationsPage() {
     <div className="min-h-screen bg-white">
       {/* Hero */}
       <section className="relative py-24 px-6 md:px-16 bg-gradient-to-br from-[#1a5f7a] via-[#1d6e85] to-[#2d9596] text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-white blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-[#f59e0b] blur-3xl" />
-        </div>
+        <div className="absolute inset-0 opacity-10" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <span className="inline-block px-4 py-1.5 rounded-full bg-white/20 text-xs font-bold uppercase tracking-widest mb-4">Academic Profile</span>
@@ -103,7 +100,7 @@ export default function QualificationsPage() {
             <h2 className="font-headline text-3xl md:text-4xl font-bold text-[#1a5f7a] mt-2">Degrees &amp; Certifications</h2>
             <div className="w-16 h-1.5 bg-[#2d9596] mx-auto rounded-full mt-4" />
           </div>
-
+          
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {degrees.map((d, i) => {
               const DegIcon = d.Icon;
@@ -114,22 +111,22 @@ export default function QualificationsPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="group relative bg-white rounded-3xl border border-gray-100 p-8 shadow-[0_8px_30px_rgba(0,0,0,0.015)] hover:shadow-[0_15px_45px_rgba(26,95,122,0.06)] hover:-translate-y-1 active:scale-[0.98] transition-transform duration-300 flex flex-col justify-between overflow-hidden"
+                  className="relative bg-white rounded-3xl border border-gray-100 p-8 shadow-[0_8px_30px_rgba(0,0,0,0.04)] flex flex-col justify-between overflow-hidden"
                 >
                   {/* Top decorative line on hover */}
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1a5f7a] to-[#2d9596] rounded-t-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
+                  
                   {/* Radial background glow on hover */}
                   <div className="absolute right-0 top-0 w-40 h-40 rounded-full bg-[#1a5f7a]/2 blur-3xl pointer-events-none group-hover:bg-[#2d9596]/5 transition-colors duration-500" />
-
+                  
                   <div className="space-y-5 relative z-10">
                     {/* Header: Icon & Badge */}
                     <div className="flex items-center justify-between">
-                      <div className={`w-12 h-12 rounded-2xl ${d.badgeBg} shadow-sm group-hover:scale-105 transition-transform duration-300 flex items-center justify-center shrink-0`}>
+                      <div className={`w-12 h-12 rounded-2xl ${d.badgeBg} shadow-sm flex items-center justify-center shrink-0`}>
                         <DegIcon className="w-6 h-6" />
                       </div>
                       {d.current && (
-                        <span className="px-3 py-1 rounded-full bg-[#2d9596]/10 text-[#2d9596] text-[10px] font-extrabold uppercase tracking-wider border border-[#2d9596]/20 shadow-sm">
+                        <span className="px-3 py-1 rounded-full bg-[#2d9596]/10 text-[#2d9596] text-[10px] font-extrabold uppercase tracking-wider border border-[#2d9596]/20">
                           Current Specialization
                         </span>
                       )}
@@ -139,7 +136,7 @@ export default function QualificationsPage() {
                       <span className="inline-block text-[10px] font-extrabold uppercase tracking-widest text-[#2d9596]">
                         {d.year}
                       </span>
-                      <h3 className="font-headline text-xl md:text-2xl font-bold text-[#1a5f7a] leading-tight group-hover:text-[#2d9596] transition-colors duration-300">
+                      <h3 className="font-headline text-xl md:text-2xl font-bold text-[#1a5f7a] leading-tight">
                         {d.title}
                       </h3>
                       <p className="text-sm text-gray-500 font-semibold leading-relaxed">
@@ -147,7 +144,7 @@ export default function QualificationsPage() {
                       </p>
                     </div>
 
-                    <p className="text-xs text-gray-400 leading-relaxed font-medium pt-2 border-t border-gray-100/85">
+                    <p className="text-xs text-gray-400 leading-relaxed font-medium pt-3 border-t border-gray-100">
                       {d.detail}
                     </p>
                   </div>
@@ -165,19 +162,27 @@ export default function QualificationsPage() {
             <span className="text-[#2d9596] font-bold text-xs uppercase tracking-[0.2em]">Education</span>
             <h2 className="font-headline text-3xl font-bold text-[#1a5f7a] mt-2">Academic Background</h2>
           </div>
-          <div className="space-y-4 max-w-3xl mx-auto">
-            {education.map((e, i) => (
-              <motion.div key={e.label} initial={{ opacity: 0, x: -15 }} whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                className="flex items-center gap-5 p-5 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1a5f7a] to-[#2d9596] flex items-center justify-center text-white font-bold text-xs shrink-0">
-                  {e.year.slice(-2)}
+          <div className="relative max-w-3xl mx-auto pl-8 border-l-2 border-dashed border-[#2d9596]/30 space-y-8 py-2">
+             {education.map((e, i) => (
+              <motion.div 
+                key={e.label} 
+                initial={{ opacity: 0, x: -20 }} 
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }} 
+                transition={{ delay: i * 0.1 }}
+                className="relative"
+              >
+                {/* Timeline node dot */}
+                <div className="absolute -left-[41px] top-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-4 border-white bg-[#1a5f7a] shadow-[0_0_0_4px_rgba(26,95,122,0.1)] z-10" />
+
+                {/* Card Content */}
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 bg-white rounded-2xl border border-gray-100 shadow-sm md:hover:shadow-md transition-all">
+                  <div>
+                    <p className="font-headline text-lg font-bold text-[#1a5f7a]">{e.label}</p>
+                    <p className="text-sm text-gray-500 mt-1">{e.institution}</p>
+                  </div>
+                  <span className="text-sm font-bold text-[#2d9596] bg-[#e8f4f8] px-4 py-1.5 rounded-full shrink-0 w-fit">{e.year}</span>
                 </div>
-                <div className="flex-grow">
-                  <p className="font-headline text-lg font-bold text-[#1a5f7a]">{e.label}</p>
-                  <p className="text-sm text-gray-500">{e.institution}</p>
-                </div>
-                <span className="text-sm font-bold text-[#2d9596] bg-[#e8f4f8] px-3 py-1 rounded-full">{e.year}</span>
               </motion.div>
             ))}
           </div>
@@ -192,7 +197,7 @@ export default function QualificationsPage() {
             <h2 className="font-headline text-3xl font-bold text-[#1a5f7a] mt-2">International Memberships</h2>
             <div className="w-16 h-1.5 bg-[#2d9596] mx-auto rounded-full mt-4" />
           </div>
-
+          
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {memberships.map((m, i) => {
               const MIcon = m.Icon;
@@ -203,27 +208,27 @@ export default function QualificationsPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="group relative bg-white rounded-3xl border border-gray-100 p-8 text-center shadow-[0_8px_30px_rgba(0,0,0,0.015)] hover:shadow-[0_15px_45px_rgba(26,95,122,0.06)] hover:-translate-y-1 active:scale-[0.98] transition-transform duration-300 flex flex-col justify-between items-center overflow-hidden"
+                  className="group relative bg-white rounded-3xl border-2 border-[#1a5f7a]/20 p-8 text-center shadow-[0_4px_24px_rgba(26,95,122,0.10)] md:hover:shadow-[0_12px_40px_rgba(26,95,122,0.18)] md:hover:border-[#2d9596]/50 md:hover:-translate-y-1 active:scale-[0.98] transition-all duration-300 flex flex-col items-center overflow-hidden"
                 >
                   {/* Top decorative line on hover */}
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1a5f7a] to-[#2d9596] rounded-t-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
+                  
                   {/* Radial background glow on hover */}
                   <div className="absolute right-0 top-0 w-32 h-32 rounded-full bg-[#1a5f7a]/2 blur-3xl pointer-events-none group-hover:bg-[#2d9596]/5 transition-colors duration-500" />
-
+                  
                   <div className="space-y-4 relative z-10 w-full flex flex-col items-center">
-                    <div className={`w-14 h-14 rounded-2xl ${m.iconBg} group-hover:scale-105 transition-transform duration-300 flex items-center justify-center shrink-0`}>
+                    <div className={`w-14 h-14 rounded-2xl ${m.iconBg} flex items-center justify-center shrink-0 shadow-sm`}>
                       <MIcon className="w-6 h-6" />
                     </div>
-
+                    
                     <div className="inline-block px-3 py-1 rounded-full bg-[#2d9596]/10 text-[#2d9596] border border-[#2d9596]/20 text-[10px] font-extrabold uppercase tracking-wider">
                       {m.short}
                     </div>
-
+                    
                     <h3 className="font-headline text-base font-bold text-[#1a5f7a] leading-snug group-hover:text-[#2d9596] transition-colors duration-300">
                       {m.name}
                     </h3>
-
+                    
                     <p className="text-xs text-gray-400 leading-relaxed font-medium pt-4 border-t border-gray-100/80 w-full">
                       {m.desc}
                     </p>
@@ -242,17 +247,22 @@ export default function QualificationsPage() {
             <span className="text-[#2d9596] font-bold text-xs uppercase tracking-[0.2em]">Continuing Education</span>
             <h2 className="font-headline text-3xl font-bold text-[#1a5f7a] mt-2">Trainings & Workshops</h2>
           </div>
-          <div className="space-y-3">
+          <div className="space-y-4">
             {trainingsWorkshops.map((t, i) => (
-              <motion.div key={i} initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }} transition={{ delay: i * 0.07 }}
-                className="flex items-start gap-4 p-5 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-[#2d9596]/20 transition-all group">
-                <div className="w-10 h-10 rounded-xl bg-[#e8f4f8] flex items-center justify-center text-[#1a5f7a] font-bold text-xs shrink-0 group-hover:bg-[#1a5f7a] group-hover:text-white transition-colors">
-                  {t.year.slice(-2)}
-                </div>
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.07 }}
+                className="relative flex items-start gap-4 p-5 pl-7 bg-white rounded-2xl border border-gray-100 shadow-sm md:hover:shadow-md md:hover:border-[#2d9596]/20 transition-all overflow-hidden"
+              >
+                {/* Vertical colored strip for visual highlight */}
+                <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-[#1a5f7a] to-[#2d9596]" />
+                
                 <div>
-                  <p className="font-bold text-sm text-gray-800 group-hover:text-[#1a5f7a] transition-colors">{t.title}</p>
-                  <p className="text-xs text-gray-400 mt-0.5">{t.org} · {t.year}</p>
+                  <p className="font-bold text-sm text-gray-800 md:group-hover:text-[#1a5f7a] transition-colors">{t.title}</p>
+                  <p className="text-xs text-gray-500 mt-1">{t.org} · {t.year}</p>
                 </div>
               </motion.div>
             ))}
@@ -271,7 +281,7 @@ export default function QualificationsPage() {
             {skills.map((s, i) => (
               <motion.span key={s} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }} transition={{ delay: i * 0.04 }}
-                className="px-4 py-2.5 rounded-full bg-[#e8f4f8] text-[#1a5f7a] text-sm font-semibold border border-[#2d9596]/20 hover:bg-[#1a5f7a] hover:text-white hover:border-transparent transition-all cursor-default shadow-sm">
+                className="px-4 py-2.5 rounded-full bg-[#e8f4f8] text-[#1a5f7a] text-sm font-semibold border border-[#2d9596]/20 md:hover:bg-[#1a5f7a] md:hover:text-white md:hover:border-transparent transition-all cursor-default shadow-sm">
                 {s}
               </motion.span>
             ))}

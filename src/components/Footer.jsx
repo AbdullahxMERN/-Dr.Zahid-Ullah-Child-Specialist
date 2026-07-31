@@ -93,6 +93,7 @@ export default function Footer() {
               { label: "Qualifications", href: "/qualifications" },
               { label: "Medical Services", href: "/services" },
               { label: "Patient Reviews (4.9⭐)", href: "/reviews" },
+              { label: "Frequently Asked Questions", href: "/faq" },
               { label: "Book Appointment", href: "/appointment" },
               { label: "Contact Us", href: "/contact" },
             ].map((l) => (
