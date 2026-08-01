@@ -143,7 +143,6 @@ const researchPublications = [
 
 const specialties = [
   "Growth Disorders (Short/Tall Stature)",
-  "Pediatric Diabetes (Type 1 & 2)",
   "Thyroid Disorders",
   "Metabolic Bone Disease",
   "Adrenal & Pituitary Conditions",
