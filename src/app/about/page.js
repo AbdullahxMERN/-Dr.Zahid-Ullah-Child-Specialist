@@ -171,65 +171,63 @@ export default function AboutPage() {
             <span className="text-[#2d9596] text-xs font-bold uppercase tracking-[0.25em]">Meet the Doctor</span>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-[380px_1fr] gap-10 lg:gap-14 items-start">
 
-            {/* Left — Photo + Quick-facts card */}
+            {/* ── Left: Portrait ONLY ── */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
-              className="flex flex-col gap-5"
             >
-              {/* Editorial portrait */}
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/5] bg-gradient-to-b from-[#e8f4f8] to-[#d0e8f0]">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl" style={{ aspectRatio: "3/4" }}>
                 <img
                   src="/dr-zahid.png"
                   alt="Dr. Zahid Ullah – Consultant Child Specialist"
                   className="w-full h-full object-cover object-top"
                 />
-                {/* Bottom overlay strip with name */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#0d1f2d]/80 via-[#0d1f2d]/30 to-transparent px-6 py-5">
-                  <p className="font-headline text-2xl font-bold text-white leading-tight">Dr. Zahid Ullah</p>
-                  <p className="text-white/75 text-xs font-semibold mt-1">MBBS · FCPS Paediatrics · Fellow Endocrinology</p>
-                </div>
-              </div>
+                {/* Strong gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#071620]/90 via-[#071620]/30 via-55% to-transparent" />
 
-              {/* Quick-fact chips — 3 items, premium layout */}
-              <div className="flex flex-col gap-3">
-                {/* Patients — full width highlight card */}
-                <div className="rounded-2xl border bg-emerald-50 border-emerald-100 text-emerald-800 px-5 py-4 flex items-center justify-between">
-                  <div>
-                    <p className="text-[10px] font-bold uppercase tracking-wider opacity-60 mb-0.5">Patients Treated</p>
-                    <p className="text-2xl font-bold leading-none">5,000+</p>
+                {/* Verified badge */}
+                <div className="absolute top-4 right-4 bg-white/15 backdrop-blur-md border border-white/25 rounded-full px-3 py-1.5 flex items-center gap-1.5">
+                  <div className="w-4 h-4 rounded-full bg-[#25D366] flex items-center justify-center">
+                    <svg width="8" height="8" viewBox="0 0 10 10" fill="none">
+                      <path d="M2 5l2.5 2.5L8 3" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
                   </div>
-                  <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center">
-                    <Users className="w-5 h-5 text-emerald-600" />
-                  </div>
+                  <span className="text-white text-[10px] font-bold tracking-wide">Verified Specialist</span>
                 </div>
-                {/* Bottom row — two smaller chips */}
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="rounded-2xl border bg-violet-50 border-violet-100 text-violet-800 px-4 py-3">
-                    <p className="text-[10px] font-bold uppercase tracking-wider opacity-60 mb-0.5">Speciality</p>
-                    <p className="text-sm font-bold leading-snug">Paediatrics &amp; Endocrinology</p>
-                  </div>
-                  <div className="rounded-2xl border bg-amber-50 border-amber-100 text-amber-800 px-4 py-3">
-                    <p className="text-[10px] font-bold uppercase tracking-wider opacity-60 mb-0.5">Based In</p>
-                    <p className="text-sm font-bold leading-snug">Islamabad, Pakistan</p>
+
+                {/* Name overlay */}
+                <div className="absolute bottom-0 left-0 right-0 px-6 pb-6 pt-12">
+                  <p style={{ fontFamily: "var(--font-headline)", fontSize: "clamp(22px,2.5vw,28px)", fontWeight: 800, color: "#fff", lineHeight: 1.2, marginBottom: 5 }}>
+                    Dr. Zahid Ullah
+                  </p>
+                  <p style={{ color: "rgba(255,255,255,0.72)", fontSize: 11.5, fontWeight: 600, letterSpacing: "0.02em", marginBottom: 10 }}>
+                    MBBS · FCPS Paediatrics · Fellow Endocrinology
+                  </p>
+                  <div className="flex items-center gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <svg key={i} width="12" height="12" viewBox="0 0 24 24" fill="#FCD34D">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                      </svg>
+                    ))}
+                    <span style={{ color: "rgba(255,255,255,0.8)", fontSize: 10.5, fontWeight: 700, marginLeft: 4 }}>4.9 · Google Rating</span>
                   </div>
                 </div>
               </div>
             </motion.div>
 
-            {/* Right — Bio & Credentials */}
+            {/* ── Right: Full Bio + Stats ── */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.15 }}
-              className="flex flex-col gap-8"
+              className="flex flex-col gap-6"
             >
               {/* Heading */}
               <div>
-                <h1 className="font-headline text-4xl md:text-5xl font-bold text-[#0d1f2d] leading-tight mb-4">
+                <h1 className="font-headline text-4xl md:text-5xl font-bold text-[#0d1f2d] leading-tight mb-3">
                   Dedicated to Every{" "}
                   <span className="text-[#1a5f7a] italic font-semibold">Child's Health</span>
                 </h1>
@@ -238,59 +236,30 @@ export default function AboutPage() {
                 </p>
               </div>
 
+              {/* Stat chips — 4 in a row */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                {[
+                  { label: "Patients Treated", value: "5,000+", bg: "#ecfdf5", border: "#bbf7d0", text: "#065f46" },
+                  { label: "Experience", value: "10+ Yrs",   bg: "#eff6ff", border: "#bfdbfe", text: "#1e40af" },
+                  { label: "Speciality", value: "Paeds & Endo", bg: "#f5f3ff", border: "#ddd6fe", text: "#5b21b6" },
+                  { label: "Based In", value: "Islamabad",  bg: "#fffbeb", border: "#fde68a", text: "#92400e" },
+                ].map((s) => (
+                  <div key={s.label} style={{ background: s.bg, border: `1px solid ${s.border}`, borderRadius: 14, padding: "11px 12px" }}>
+                    <p style={{ fontSize: 9, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: s.text, opacity: 0.6, marginBottom: 3 }}>{s.label}</p>
+                    <p style={{ fontSize: 13, fontWeight: 800, color: s.text, lineHeight: 1.2 }}>{s.value}</p>
+                  </div>
+                ))}
+              </div>
+
               {/* Pull quote */}
-              <blockquote className="relative border-l-4 border-[#2d9596] pl-5 py-2">
-                <p className="text-[#1a5f7a] font-headline text-lg italic font-semibold leading-snug">
-                  "Every child deserves the best start in life — and that starts with the right diagnosis, delivered with care."
+              <blockquote className="relative border-l-4 border-[#2d9596] pl-5 py-1">
+                <p className="text-[#1a5f7a] font-headline text-base italic font-semibold leading-snug">
+                  &ldquo;Every child deserves the best start in life — and that starts with the right diagnosis, delivered with care.&rdquo;
                 </p>
-                <cite className="block text-xs text-gray-400 font-bold uppercase tracking-wider mt-2 not-italic">— Dr. Zahid Ullah</cite>
+                <cite className="block text-xs text-gray-400 font-bold uppercase tracking-wider mt-1.5 not-italic">— Dr. Zahid Ullah</cite>
               </blockquote>
 
-              {/* Credentials list */}
-              <div>
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#2d9596] mb-4">Academic Credentials</p>
-                <div className="space-y-3">
-                  {[
-                    { degree: "MBBS", detail: "Bachelor of Medicine & Surgery" },
-                    { degree: "FCPS Paediatrics", detail: "Fellow, College of Physicians & Surgeons Pakistan" },
-                    { degree: "Fellow Paeds Endocrinology", detail: "PIMS – Pakistan Institute of Medical Sciences, Islamabad" },
-                    { degree: "RMP", detail: "Registered Medical Practitioner" },
-                  ].map((c, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.3 + i * 0.08 }}
-                      className="flex items-start gap-3 bg-white border border-gray-100 rounded-xl px-4 py-3 shadow-sm"
-                    >
-                      <div className="w-2 h-2 rounded-full bg-[#2d9596] mt-1.5 shrink-0" />
-                      <div>
-                        <p className="text-sm font-bold text-[#1a5f7a]">{c.degree}</p>
-                        <p className="text-xs text-gray-400 font-medium mt-0.5">{c.detail}</p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Membership badges */}
-              <div>
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#2d9596] mb-3">International Memberships</p>
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    { label: "BLS Certified", bg: "bg-emerald-50 border-emerald-200 text-emerald-700" },
-                    { label: "PIMS Fellow",   bg: "bg-sky-50 border-sky-200 text-sky-700" },
-                    { label: "ISPAD Member",  bg: "bg-violet-50 border-violet-200 text-violet-700" },
-                    { label: "ESPE Member",   bg: "bg-amber-50 border-amber-200 text-amber-700" },
-                  ].map(b => (
-                    <span key={b.label} className={`px-3.5 py-1.5 rounded-full border text-xs font-bold ${b.bg}`}>
-                      {b.label}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Subtle CTA — secondary, not dominant */}
+              {/* CTAs */}
               <div className="flex items-center gap-3 pt-2">
                 <Link
                   href="/appointment"
@@ -309,26 +278,66 @@ export default function AboutPage() {
             </motion.div>
 
           </div>
+
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="py-12 px-6 md:px-16 bg-white border-b border-gray-100">
-        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
-          {[
-            { label: "Years Experience", value: "10+", icon: <Award className="w-6 h-6" /> },
-            { label: "Patients Treated", value: "5,000+", icon: <Users className="w-6 h-6" /> },
-            { label: "Google Rating", value: "5.0", icon: <Star className="w-6 h-6" /> },
-            { label: "Research Publications", value: "5+", icon: <BookOpen className="w-6 h-6" /> },
-          ].map((s) => (
-            <div key={s.label} className="text-center p-5 rounded-2xl bg-[#f0f7fa] hover:bg-[#e8f4f8] transition-colors">
-              <div className="flex justify-center text-[#1a5f7a] mb-2">{s.icon}</div>
-              <p className="font-headline text-2xl font-bold text-[#1a5f7a]">{s.value}</p>
-              <p className="text-xs text-gray-500 font-medium mt-1">{s.label}</p>
+      {/* ── Credentials & Memberships Section ── */}
+      <section className="py-16 px-6 md:px-16 bg-white border-b border-gray-100">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-12 items-start">
+            
+            {/* Academic Credentials */}
+            <div>
+              <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-[#2d9596] mb-5">Academic Credentials</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {[
+                  { degree: "MBBS", detail: "Bachelor of Medicine & Surgery" },
+                  { degree: "FCPS Paediatrics", detail: "Fellow, College of Physicians & Surgeons Pakistan" },
+                  { degree: "Fellow Paeds Endocrinology", detail: "PIMS – Pakistan Institute of Medical Sciences, Islamabad" },
+                  { degree: "RMP", detail: "Registered Medical Practitioner" },
+                ].map((c, i) => (
+                  <div
+                    key={i}
+                    className="flex items-start gap-3 bg-[#f8fafc] border border-gray-100 rounded-2xl px-5 py-4 shadow-sm"
+                  >
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#2d9596] mt-1.5 shrink-0" />
+                    <div>
+                      <p className="text-base font-bold text-[#1a5f7a]">{c.degree}</p>
+                      <p className="text-xs text-gray-500 font-medium mt-1">{c.detail}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-          ))}
+
+            {/* International Memberships */}
+            <div>
+              <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-[#2d9596] mb-5">International Memberships</h3>
+              <div className="flex flex-col gap-3">
+                {[
+                  { label: "BLS Certified", org: "Basic Life Support Certification", bg: "bg-emerald-50 border-emerald-100 text-emerald-800 shadow-emerald-50/50" },
+                  { label: "PIMS Fellow",   org: "Fellowship training at Pakistan Institute of Medical Sciences", bg: "bg-sky-50 border-sky-100 text-sky-800 shadow-sky-50/50" },
+                  { label: "ISPAD Member",  org: "International Society for Pediatric and Adolescent Diabetes", bg: "bg-violet-50 border-violet-100 text-violet-800 shadow-violet-50/50" },
+                  { label: "ESPE Member",   org: "European Society for Paediatric Endocrinology", bg: "bg-amber-50 border-amber-100 text-amber-800 shadow-amber-50/50" },
+                ].map((b, i) => (
+                  <div key={i} className={`px-5 py-3 rounded-2xl border text-sm font-bold flex items-center justify-between shadow-sm ${b.bg}`}>
+                    <div>
+                      <p className="font-bold text-sm">{b.label}</p>
+                      <p className="text-[11px] font-medium opacity-80 mt-0.5">{b.org}</p>
+                    </div>
+                    <span className="text-xs opacity-60">✓</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
         </div>
       </section>
+
+
+
 
       {/* Professional Summary */}
       <section className="py-16 px-6 md:px-16 bg-gradient-to-b from-[#f0f7fa] to-white">

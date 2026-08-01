@@ -307,7 +307,8 @@ export default function Home() {
               <motion.div
                 key={s.title}
                 whileTap={{ scale: 0.97 }}
-                className="bg-white border border-gray-100 rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col gap-5 cursor-pointer active:scale-[0.97] hover:border-[#1a5f7a]/20"
+                className="bg-white border border-[#1a5f7a]/15 rounded-3xl p-6 sm:p-8 flex flex-col gap-5 cursor-pointer active:scale-[0.97]"
+                style={{ boxShadow: "0 4px 6px -1px rgba(0,0,0,0.06), 0 20px 40px -8px rgba(0,0,0,0.16), 0 10px 15px -3px rgba(0,0,0,0.08)" }}
               >
                 <div className={`w-14 h-14 rounded-2xl ${s.color} flex items-center justify-center shrink-0`}>
                   <Icon className="w-6 h-6" />
