@@ -1,6 +1,8 @@
+
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { 
   Award, 
@@ -180,26 +182,19 @@ export default function AboutPage() {
               transition={{ duration: 0.7 }}
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl" style={{ aspectRatio: "3/4" }}>
-                <img
+                <Image
                   src="/dr-zahid.png"
                   alt="Dr. Zahid Ullah – Consultant Child Specialist"
-                  className="w-full h-full object-cover object-top"
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 380px"
+                  className="object-cover object-top"
                 />
                 {/* Strong gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#071620]/90 via-[#071620]/30 via-55% to-transparent" />
-
-                {/* Verified badge */}
-                <div className="absolute top-4 right-4 bg-white/15 backdrop-blur-md border border-white/25 rounded-full px-3 py-1.5 flex items-center gap-1.5">
-                  <div className="w-4 h-4 rounded-full bg-[#25D366] flex items-center justify-center">
-                    <svg width="8" height="8" viewBox="0 0 10 10" fill="none">
-                      <path d="M2 5l2.5 2.5L8 3" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
-                  <span className="text-white text-[10px] font-bold tracking-wide">Verified Specialist</span>
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#071620]/90 via-[#071620]/30 via-55% to-transparent pointer-events-none" />
 
                 {/* Name overlay */}
-                <div className="absolute bottom-0 left-0 right-0 px-6 pb-6 pt-12">
+                <div className="absolute bottom-0 left-0 right-0 px-6 pb-6 pt-12 z-10 pointer-events-none">
                   <p style={{ fontFamily: "var(--font-headline)", fontSize: "clamp(22px,2.5vw,28px)", fontWeight: 800, color: "#fff", lineHeight: 1.2, marginBottom: 5 }}>
                     Dr. Zahid Ullah
                   </p>
@@ -336,9 +331,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-
-
-
       {/* Professional Summary */}
       <section className="py-16 px-6 md:px-16 bg-gradient-to-b from-[#f0f7fa] to-white">
         <div className="max-w-5xl mx-auto">
@@ -412,8 +404,6 @@ export default function AboutPage() {
             
             {/* Unified container card */}
             <div className="relative overflow-hidden bg-white border border-gray-100 shadow-[0_10px_35px_rgba(26,95,122,0.04)] rounded-[2.5rem] p-8 md:p-10">
-
-              
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
                 {specialties.map((s, idx) => (
                   <div key={idx} className="flex items-start gap-3">
