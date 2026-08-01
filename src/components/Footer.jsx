@@ -130,6 +130,16 @@ export default function Footer() {
                 </span>
               </div>
             </li>
+            {/* Health Next Hospital */}
+            <li className="flex items-start gap-3">
+              <MapPin className="w-4 h-4 text-[#2d9596] shrink-0 mt-0.5" />
+              <div>
+                <p className="text-xs font-bold text-white/40 uppercase tracking-wide mb-1">Clinic Location</p>
+                <span className="text-sm text-white/80 font-semibold">Health Next Hospital</span>
+                <span className="block text-xs text-white/60">G-8 Markaz, Islamabad</span>
+                <span className="block text-xs text-white/60">PMDC No: 21927-N</span>
+              </div>
+            </li>
             <li className="flex items-start gap-3">
               <Phone className="w-4 h-4 text-[#2d9596] shrink-0 mt-0.5" />
               <div>

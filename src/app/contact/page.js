@@ -23,6 +23,7 @@ export default function ContactPage() {
     { icon: <Phone className="w-6 h-6" />, label: "Clinic Phone", value: "051-2340508", sub: "+92 326 5557795", href: "tel:051-2340508", color: "from-[#1a5f7a] to-[#2d9596]" },
     { icon: <MessageCircle className="w-6 h-6" />, label: "Doctor WhatsApp", value: "0346 9297818", sub: "Tap to open WhatsApp", href: WHATSAPP_LINK, color: "from-[#1DAA61] to-[#17964f]" },
     { icon: <MapPin className="w-6 h-6" />, label: "Clinic Location", value: "Muhammad Medical Centre", sub: "G-8 Markaz, Islamabad", href: MAPS_LINK, color: "from-[#f59e0b] to-[#e67e22]" },
+    { icon: <MapPin className="w-6 h-6" />, label: "Clinic Location", value: "Health Next Hospital", sub: "G-8 Markaz, Islamabad", href: "https://maps.google.com/?q=Health+Next+Hospital+G8+Markaz+Islamabad", color: "from-[#8b5cf6] to-[#6d28d9]" },
     { icon: <Clock className="w-6 h-6" />, label: "Appointment Days", value: "Monday – Friday", sub: "Closed Sat & Sun", href: "/appointment", color: "from-[#1a5f7a] to-[#2d9596]" },
   ];
 
@@ -43,7 +44,7 @@ export default function ContactPage() {
       <section className="py-16 px-6 md:px-16 bg-gradient-to-b from-[#f0f7fa] to-white">
         <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {contactItems.map((item, i) => (
-            <motion.a key={item.label} href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined}
+            <motion.a key={item.value} href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined}
               rel="noopener noreferrer" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }}
               className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all group text-center block">
               <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center text-white mx-auto mb-4 group-hover:scale-105 transition-transform shadow-md`}>
@@ -116,10 +117,11 @@ export default function ContactPage() {
 
           {/* Clinic Info + Map */}
           <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }} className="space-y-5">
+            {/* Clinic 1 */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
               <div className="flex items-start justify-between mb-3">
                 <div>
-                  <span className="text-xs font-bold text-[#2d9596] uppercase tracking-wider">Primary Clinic</span>
+                  <span className="text-xs font-bold text-[#2d9596] uppercase tracking-wider">Clinic Location</span>
                   <h3 className="font-headline text-xl font-bold text-[#1a5f7a] mt-0.5">Muhammad Medical Centre</h3>
                   <p className="text-sm text-gray-500 flex items-center gap-1 mt-1"><MapPin className="w-3.5 h-3.5 text-[#2d9596]" />G-8 Markaz, Islamabad</p>
                 </div>
@@ -135,7 +137,27 @@ export default function ContactPage() {
               </a>
             </div>
 
-            {/* Embedded Google Map */}
+            {/* Clinic 2 */}
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
+              <div className="flex items-start justify-between mb-3">
+                <div>
+                  <span className="text-xs font-bold text-[#2d9596] uppercase tracking-wider">Clinic Location</span>
+                  <h3 className="font-headline text-xl font-bold text-[#1a5f7a] mt-0.5">Health Next Hospital</h3>
+                  <p className="text-sm text-gray-500 flex items-center gap-1 mt-1"><MapPin className="w-3.5 h-3.5 text-[#2d9596]" />G-8 Markaz, Islamabad</p>
+                  <p className="text-xs text-gray-400 mt-1">PMDC No: 21927-N</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-gray-600 mb-4 pt-2">
+                <Calendar className="w-4 h-4 text-[#2d9596]" />
+                <span>Monday to Friday (Closed Saturday &amp; Sunday)</span>
+              </div>
+              <a href="https://maps.google.com/?q=Health+Next+Hospital+G8+Markaz+Islamabad" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 w-full bg-[#1a5f7a] hover:bg-[#154f67] text-white py-3 rounded-xl font-bold text-sm transition-all shadow-md">
+                <Navigation className="w-4 h-4" />
+                Get Directions on Google Maps
+              </a>
+            </div>
+
+            {/* Embedded Google Map (Muhammad Medical Centre) */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
               <div className="h-1.5 bg-gradient-to-r from-[#1a5f7a] to-[#2d9596]" />
               <div className="p-4">

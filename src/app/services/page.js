@@ -599,7 +599,7 @@ export default function ServicesPage() {
               marginBottom: "20px",
             }}
           >
-            Muhammad Medical Centre · G-8 Markaz · Islamabad
+            Muhammad Medical Centre / Health Next Hospital · G-8 Markaz · Islamabad
           </span>
           <h1
             style={{

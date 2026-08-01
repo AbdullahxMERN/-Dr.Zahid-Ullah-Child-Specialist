@@ -48,7 +48,7 @@ export default function BookingModal({ onClose }) {
       alert("Please fill in all required fields.");
       return;
     }
-    const msg = `*Appointment Request*\n\n👤 *Patient Name:* ${formData.name}\n📞 *Contact:* ${formData.phone}\n🏥 *Clinic:* Muhammad Medical Centre, G-8 Markaz, Islamabad\n⚕️ *Service:* ${formData.service}\n📅 *Date:* ${formData.date || "Flexible"}\n\n_Sent via Dr. Zahid Ullah website_`;
+    const msg = `*Appointment Request*\n\n👤 *Patient Name:* ${formData.name}\n📞 *Contact:* ${formData.phone}\n🏥 *Clinic:* Muhammad Medical Centre / Health Next Hospital, G-8 Markaz, Islamabad\n⚕️ *Service:* ${formData.service}\n📅 *Date:* ${formData.date || "Flexible"}\n\n_Sent via Dr. Zahid Ullah website_`;
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
     window.open(url, "_blank");
     onClose();
@@ -86,7 +86,8 @@ export default function BookingModal({ onClose }) {
               </div>
               <div>
                 <h3 className="font-headline text-2xl font-bold text-[#1a5f7a]">Book via WhatsApp</h3>
-                <p className="text-xs text-gray-500">Muhammad Medical Centre, G-8 Markaz, Islamabad</p>
+                <p className="text-xs text-gray-500">Muhammad Medical Centre / Health Next Hospital, G-8 Markaz, Islamabad</p>
+                <p className="text-xs text-[#2d9596] font-bold mt-1">PMDC No: 21927-N</p>
               </div>
             </div>
           </div>

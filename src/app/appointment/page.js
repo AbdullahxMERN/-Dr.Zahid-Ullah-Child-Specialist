@@ -49,19 +49,19 @@ export default function AppointmentPage() {
     service: "",
     date: "",
     reason: "",
-    clinic: "Muhammad Medical Centre, G-8 Markaz, Islamabad",
+    clinic: "",
   });
   const [submitted, setSubmitted] = useState(false);
 
   const set = (key, val) => setForm((f) => ({ ...f, [key]: val }));
 
   const buildWhatsAppMsg = () => {
-    return `*📋 APPOINTMENT REQUEST — DR. ZAHID ULLAH*\n\n🏥 *Clinic:* Muhammad Medical Centre, G-8 Markaz, Islamabad\n👨‍👧 *Parent/Guardian:* ${form.parentName}\n👶 *Child's Name:* ${form.childName}\n🎂 *Child's Age:* ${form.childAge}\n📞 *Phone:* ${form.phone}\n📧 *Email:* ${form.email || "N/A"}\n⚥ *Gender:* ${form.gender}\n⚕️ *Service:* ${form.service}\n📅 *Preferred Date:* ${form.date || "Flexible"}\n📝 *Reason:* ${form.reason}\n\n_Submitted via Dr. Zahid Ullah Website_`;
+    return `*📋 APPOINTMENT REQUEST — DR. ZAHID ULLAH*\n\n🏥 *Clinic:* ${form.clinic}, G-8 Markaz, Islamabad\n👨‍👧 *Parent/Guardian:* ${form.parentName}\n👶 *Child's Name:* ${form.childName}\n🎂 *Child's Age:* ${form.childAge}\n📞 *Phone:* ${form.phone}\n📧 *Email:* ${form.email || "N/A"}\n⚥ *Gender:* ${form.gender}\n⚕️ *Service:* ${form.service}\n📅 *Preferred Date:* ${form.date || "Flexible"}\n📝 *Reason:* ${form.reason}\n\n_Submitted via Dr. Zahid Ullah Website_`;
   };
 
   const handleWhatsAppSubmit = (e) => {
     e.preventDefault();
-    if (!form.parentName || !form.childName || !form.phone || !form.service) {
+    if (!form.parentName || !form.childName || !form.phone || !form.service || !form.clinic) {
       alert("Please fill in all required fields marked with *");
       return;
     }
@@ -147,8 +147,9 @@ export default function AppointmentPage() {
             </h1>
             <p className="text-xs sm:text-sm text-gray-500 mt-1 flex items-center justify-center gap-1">
               <MapPin className="w-3.5 h-3.5 text-[#2d9596]" />
-              Muhammad Medical Centre, G-8 Markaz, Islamabad (Monday – Friday)
+              Muhammad Medical Centre / Health Next Hospital, G-8 Markaz, Islamabad
             </p>
+            <p className="text-xs text-[#2d9596] font-bold mt-1">PMDC No: 21927-N</p>
           </div>
 
           <form onSubmit={handleWhatsAppSubmit} className="space-y-6">
@@ -235,6 +236,24 @@ export default function AppointmentPage() {
                   </select>
                   <ChevronDown className="absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
                 </div>
+              </div>
+            </div>
+
+            {/* Select Clinic */}
+            <div>
+              <label className={labelCls}>Select Clinic *</label>
+              <div className="relative">
+                <select
+                  required
+                  value={form.clinic}
+                  onChange={(e) => set("clinic", e.target.value)}
+                  className={`${inputCls} appearance-none pr-10 bg-white`}
+                >
+                  <option value="">Choose a clinic</option>
+                  <option value="Muhammad Medical Centre">Muhammad Medical Centre</option>
+                  <option value="Health Next Hospital">Health Next Hospital</option>
+                </select>
+                <ChevronDown className="absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
               </div>
             </div>
 

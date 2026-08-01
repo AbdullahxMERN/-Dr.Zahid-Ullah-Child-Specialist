@@ -199,7 +199,7 @@ export default function Home() {
             </p>
 
             <p className="text-gray-500 leading-relaxed max-w-lg">
-              Dedicated pediatric specialist delivering compassionate, evidence-based care for your child's growth, hormonal health, and overall wellbeing at Muhammad Medical Centre, G-8 Markaz, Islamabad.
+              Dedicated pediatric specialist delivering compassionate, evidence-based care for your child's growth, hormonal health, and overall wellbeing at Muhammad Medical Centre & Health Next Hospital, G-8 Markaz, Islamabad.
             </p>
 
             {/* CTA Buttons */}
@@ -419,7 +419,7 @@ export default function Home() {
               <div className="w-16 h-1.5 bg-[#2d9596] rounded-full mt-2" />
               
               <p className="text-gray-500 leading-relaxed">
-                Dr. Zahid Ullah consults at **Muhammad Medical Centre**, centrally located in the heart of Islamabad at G-8 Markaz. The clinic is easily accessible with ample parking space.
+                Dr. Zahid Ullah consults at **Muhammad Medical Centre** & **Health Next Hospital**, centrally located in the heart of Islamabad at G-8 Markaz. The clinics are easily accessible with ample parking space.
               </p>
 
               <div className="space-y-4 pt-4">
@@ -429,7 +429,8 @@ export default function Home() {
                   </div>
                   <div>
                     <h4 className="font-bold text-sm text-[#1a5f7a]">Clinic Address</h4>
-                    <p className="text-xs text-gray-500 mt-0.5">Muhammad Medical Centre, G-8 Markaz, Islamabad, Pakistan</p>
+                    <p className="text-xs text-gray-500 mt-0.5">Muhammad Medical Centre / Health Next Hospital, G-8 Markaz, Islamabad, Pakistan</p>
+                    <p className="text-xs text-[#2d9596] font-bold mt-1">PMDC No: 21927-N</p>
                   </div>
                 </div>
 
@@ -494,7 +495,7 @@ export default function Home() {
             Prioritize Your Child's Health Today
           </h2>
           <p className="text-white/80 text-base md:text-lg leading-relaxed">
-            Get professional guidance, diagnostics, and customized treatment plans at Muhammad Medical Centre, G-8 Markaz, Islamabad.
+            Get professional guidance, diagnostics, and customized treatment plans at Muhammad Medical Centre / Health Next Hospital, G-8 Markaz, Islamabad.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-2">
             <Link

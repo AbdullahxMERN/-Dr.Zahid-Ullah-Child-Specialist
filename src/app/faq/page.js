@@ -55,17 +55,17 @@ const faqs = [
   {
     category: "appointments",
     question: "Where is the clinic located and what are the consultation days?",
-    answer: "Dr. Zahid Ullah consults at Muhammad Medical Centre, G-8 Markaz, Islamabad. Consultations are available from Monday to Friday (Saturday & Sunday Closed). We recommend calling ahead or booking online to secure a specific slot."
+    answer: "Dr. Zahid Ullah consults at Muhammad Medical Centre and Health Next Hospital, G-8 Markaz, Islamabad. Consultations are available from Monday to Friday (Saturday & Sunday Closed). We recommend calling ahead or booking online to secure a specific slot."
   },
   {
     category: "pediatrics",
     question: "Are child vaccinations and immunizations available at the clinic?",
-    answer: "Yes, standard pediatric immunizations and childhood vaccines are administered at Muhammad Medical Centre in accordance with WHO and national EPI guidelines. Please contact us to check vaccine availability and schedule a vaccination slot."
+    answer: "Yes, standard pediatric immunizations and childhood vaccines are administered at Muhammad Medical Centre and Health Next Hospital in accordance with WHO and national EPI guidelines. Please contact us to check vaccine availability and schedule a vaccination slot."
   },
   {
     category: "appointments",
     question: "Are laboratory diagnostic facilities available at the clinic?",
-    answer: "Yes. Muhammad Medical Centre is equipped with reliable lab collection points for hormone assays, metabolic panels, pediatric blood work, and endocrine stimulation/suppression dynamic testing."
+    answer: "Yes. Our clinics are equipped with reliable lab collection points for hormone assays, metabolic panels, pediatric blood work, and endocrine stimulation/suppression dynamic testing."
   }
 ];
 
