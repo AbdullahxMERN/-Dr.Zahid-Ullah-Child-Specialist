@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Phone, MapPin, Clock, MessageCircle, Navigation, Calendar, Send } from "lucide-react";
+import { Phone, MapPin, Clock, MessageCircle, Navigation, Calendar, Send, ExternalLink } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
 
@@ -219,12 +219,37 @@ export default function ContactPage() {
 
       {/* Appointment CTA */}
       <section className="py-14 px-6 text-center bg-gradient-to-b from-white to-[#f0f7fa]">
-        <Link href="/appointment"
-          className="inline-flex items-center gap-2 bg-gradient-to-r from-[#1a5f7a] to-[#2d9596] text-white px-10 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition-all active:scale-95">
-          <Calendar className="w-6 h-6" />
-          Book an Appointment Online
-        </Link>
+        <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#2d9596] mb-3">Quick Access</p>
+        <h2 className="font-headline text-2xl font-bold text-[#1a5f7a] mb-8">Book Your Appointment</h2>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Link href="/appointment"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-[#1a5f7a] to-[#2d9596] text-white px-9 py-4 rounded-full font-bold text-sm shadow-xl hover:shadow-2xl hover:scale-105 transition-all active:scale-95">
+            <Calendar className="w-5 h-5" />
+            Book Appointment Online
+          </Link>
+
+          {/* Oladoc Profile Button */}
+          <a
+            href="https://oladoc.com/dr/3977520"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2.5 relative overflow-hidden px-9 py-4 rounded-full font-bold text-sm shadow-xl hover:shadow-2xl hover:scale-105 transition-all active:scale-95 border-2 border-[#004182] bg-white text-[#004182]"
+          >
+            {/* animated shimmer */}
+            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-[#004182]/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none" />
+            {/* Oladoc logo pill */}
+            <span className="relative z-10 flex items-center gap-2.5">
+              <span className="flex items-center gap-1.5 bg-[#004182] text-white text-[11px] font-extrabold px-2.5 py-1 rounded-full tracking-wide">
+                ola<span className="text-[#f59e0b]">doc</span>
+              </span>
+              <span className="text-[#004182]">Book Consultation on Oladoc</span>
+              <ExternalLink className="w-4 h-4 text-[#004182] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </span>
+          </a>
+        </div>
+        <p className="mt-5 text-xs text-gray-400">Also available for video consultation on Oladoc</p>
       </section>
     </div>
   );
 }
+

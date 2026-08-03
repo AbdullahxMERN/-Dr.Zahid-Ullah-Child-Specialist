@@ -161,7 +161,7 @@ export default function Footer() {
               </div>
             </li>
             <li className="flex items-start gap-3">
-              <MessageCircle className="w-4 h-4 text-[#25D366] shrink-0 mt-0.5" />
+              <MessageCircle className="w-4 h-4 text-[#2d9596] shrink-0 mt-0.5" />
               <div>
                 <p className="text-xs font-bold text-white/40 uppercase tracking-wide mb-1">
                   Doctor WhatsApp

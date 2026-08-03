@@ -21,6 +21,7 @@ import {
   TrendingUp,
   ArrowRight,
   Calendar,
+  ExternalLink,
 } from "lucide-react";
 
 const WHATSAPP_LINK = `https://wa.me/923469297818?text=${encodeURIComponent("Hello Dr. Zahid, I'd like to book an appointment.")}`;
@@ -699,15 +700,36 @@ export default function AboutPage() {
         <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto">
           Book an appointment today at our G-8 Markaz clinics — Mon to Fri.
         </p>
-        <a
-          href={WHATSAPP_LINK}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 bg-[#1DAA61] hover:bg-[#17964f] text-white px-10 py-4 rounded-full font-bold text-lg shadow-xl transition-all active:scale-95"
-        >
-          <MessageCircle className="w-6 h-6" />
-          WhatsApp Appointment
-        </a>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href={WHATSAPP_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-[#1DAA61] hover:bg-[#17964f] text-white px-8 py-4 rounded-full font-bold text-base shadow-xl hover:scale-105 transition-all active:scale-95"
+          >
+            <MessageCircle className="w-5 h-5" />
+            WhatsApp Appointment
+          </a>
+
+          {/* Oladoc Profile Button */}
+          <a
+            href="https://oladoc.com/dr/3977520"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2.5 relative overflow-hidden px-8 py-4 rounded-full font-bold text-base shadow-xl hover:shadow-2xl hover:scale-105 transition-all active:scale-95 bg-white text-[#004182]"
+          >
+            {/* animated shimmer */}
+            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-[#004182]/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none" />
+            {/* Oladoc logo pill */}
+            <span className="relative z-10 flex items-center gap-2.5">
+              <span className="flex items-center gap-1.5 bg-[#004182] text-white text-[11px] font-extrabold px-2.5 py-1 rounded-full tracking-wide">
+                ola<span className="text-[#f59e0b]">doc</span>
+              </span>
+              <span className="text-[#004182]">View Profile on Oladoc</span>
+              <ExternalLink className="w-4 h-4 text-[#004182] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </span>
+          </a>
+        </div>
       </section>
     </div>
   );

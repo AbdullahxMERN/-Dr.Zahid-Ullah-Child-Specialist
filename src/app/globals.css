@@ -155,3 +155,14 @@ a {
   height: 1px;
   background: linear-gradient(to right, transparent, rgba(26, 95, 122, 0.15), transparent);
 }
+
+/* ─── HIDE NEXT.JS DEV INDICATOR LOGO ─── */
+[data-nextjs-toast],
+[data-next-mark],
+[data-nextjs-dev-indicator],
+[data-nextjs-portal],
+#next-mark,
+next-route-announcer {
+  display: none !important;
+}
+
