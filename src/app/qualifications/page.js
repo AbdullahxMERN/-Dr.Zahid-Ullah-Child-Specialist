@@ -26,7 +26,7 @@ const degrees = [
   },
   {
     title: "RMP",
-    institution: "Registered Medical Practitioner – PMC Reg #: 216371-N",
+    institution: "Registered Medical Practitioner – PMC Reg #: 21927-N",
     year: "Medical Licensing",
     Icon: ClipboardList,
     badgeBg: "bg-sky-50 border border-sky-100 text-sky-600 shadow-sky-100/50",
